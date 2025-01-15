@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1l10tq5xrgbo"]
+
+[ext_resource type="PackedScene" uid="uid://ve3wk084kefn" path="res://assets/scenes/player.tscn" id="1_203rm"]
+[ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
+[ext_resource type="Script" path="res://assets/scripts/camera_2d.gd" id="2_we2vc"]
+
+[node name="world" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_203rm")]
+position = Vector2(192, 175)
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(65, -175)
+offset = Vector2(30, -20)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_speed = 2.425
+script = ExtResource("2_we2vc")
+
+[node name="Platform" parent="." instance=ExtResource("2_gerlx")]
+position = Vector2(190, 271)
+scale = Vector2(7.89308, -0.283869)
+
+[node name="Platform2" parent="." instance=ExtResource("2_gerlx")]
+position = Vector2(735, 363)
+scale = Vector2(3.38665, 0.249413)
+
+[node name="Platform3" parent="." instance=ExtResource("2_gerlx")]
+position = Vector2(948, 97)
+scale = Vector2(1, 5.52)
+
+[node name="Platform4" parent="." instance=ExtResource("2_gerlx")]
+position = Vector2(-192, 10)
+scale = Vector2(1, 5.52)

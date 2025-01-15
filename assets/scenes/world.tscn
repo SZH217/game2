@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1l10tq5xrgbo"]
+
+[ext_resource type="PackedScene" uid="uid://ve3wk084kefn" path="res://assets/scenes/player.tscn" id="1_203rm"]
+[ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
+[ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
+[ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
+[ext_resource type="Script" path="res://assets/scripts/camera_2d.gd" id="2_we2vc"]
+[ext_resource type="PackedScene" uid="uid://rkbynkrumvhj" path="res://assets/scenes/killzone.tscn" id="4_wmchl"]
+[ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
+[ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
+[ext_resource type="Texture2D" uid="uid://rtxww4btl7o2" path="res://assets/textures/jukebox.png" id="9_k2p3n"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i81ka"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_qq2vp")
+
+[node name="PaintFullscreen" type="Sprite2D" parent="."]
+position = Vector2(615, 443)
+texture = ExtResource("2_o3xwq")
+
+[node name="Jukebox" type="Sprite2D" parent="."]
+position = Vector2(391, 329)
+scale = Vector2(0.30543, 0.30543)
+texture = ExtResource("9_k2p3n")
+
+[node name="Player" parent="." instance=ExtResource("1_203rm")]
+position = Vector2(192, 338)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(4, -37)
+offset = Vector2(30, -20)
+zoom = Vector2(1.1, 1.1)
+limit_bottom = 640
+limit_smoothed = true
+position_smoothing_speed = 2.425
+script = ExtResource("2_we2vc")
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("2_gerlx")]
+position = Vector2(188, 352)
+scale = Vector2(10.6131, -0.123869)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("2_gerlx")]
+position = Vector2(1121, 377)
+scale = Vector2(11.8666, 0.249413)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("2_gerlx")]
+position = Vector2(1762, 115)
+scale = Vector2(1, 5.52)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("2_gerlx")]
+position = Vector2(-350, 139)
+scale = Vector2(-0.100882, -4.40948)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("8_jyp76")]
+position = Vector2(612, -74)
+scale = Vector2(19.4395, 0.159211)
+
+[node name="Killzone" parent="." instance=ExtResource("4_wmchl")]
+position = Vector2(188, 571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_i81ka")
+
+[node name="bgm1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_loc5j")
+volume_db = -13.0

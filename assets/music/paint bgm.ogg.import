@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://30f4c55jbte6"
+path="res://.godot/imported/paint bgm.ogg-62a8c596151989e58bfd9d3bbbb7a457.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/paint bgm.ogg"
+dest_files=["res://.godot/imported/paint bgm.ogg-62a8c596151989e58bfd9d3bbbb7a457.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=145.0
+beat_count=0
+bar_beats=4

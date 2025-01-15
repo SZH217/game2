@@ -1,0 +1,164 @@
+[gd_scene load_steps=12 format=3 uid="uid://ve3wk084kefn"]
+
+[ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_sejqv"]
+[ext_resource type="Texture2D" uid="uid://dgmalf8ptflv" path="res://assets/textures/character.png" id="2_e01t5"]
+[ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="2_e65y5"]
+[ext_resource type="AudioStream" uid="uid://b21ih43j4y23u" path="res://assets/sounds/jump.wav" id="4_7g5fn"]
+[ext_resource type="AudioStream" uid="uid://m21ou880i66" path="res://assets/sounds/land.wav" id="4_iatxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqngj"]
+size = Vector2(20, 50)
+
+[sub_resource type="Animation" id="Animation_e425v"]
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(5, 5, 58, 69), Rect2(5, 5, 58, 69), Rect2(5, 5, 58, 69), Rect2(5, 5, 58, 69), Rect2(5, 5, 58, 69), Rect2(5, 5, 58, 69), Rect2(63, 5, 58, 69), Rect2(63, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(121, 5, 58, 69), Rect2(179, 5, 58, 69), Rect2(179, 5, 58, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_qn563"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(5, 212, 58, 69), Rect2(5, 212, 58, 69), Rect2(63, 212, 58, 69), Rect2(63, 212, 58, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_iskld"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(121, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69), Rect2(179, 143, 58, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_d35am"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(5, 74, 58, 69), Rect2(63, 74, 58, 69), Rect2(121, 74, 58, 69), Rect2(179, 74, 58, 69), Rect2(5, 143, 58, 69), Rect2(63, 143, 58, 69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5), Vector2(-1, -0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58u32"]
+_data = {
+"idle": SubResource("Animation_e425v"),
+"jump_fall": SubResource("Animation_qn563"),
+"jump_rise": SubResource("Animation_iskld"),
+"running": SubResource("Animation_d35am")
+}
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_sejqv")
+hand_scene = ExtResource("2_e65y5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("2_e01t5")
+offset = Vector2(-1, -0.5)
+region_enabled = true
+region_rect = Rect2(5, 5, 58, 69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -25)
+shape = SubResource("RectangleShape2D_lqngj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_58u32")
+}
+
+[node name="Land" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_iatxe")
+volume_db = -3.281
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7g5fn")
+volume_db = -0.245
+
+[node name="HandRayRight" type="RayCast2D" parent="."]
+position = Vector2(2, -25)
+target_position = Vector2(70, 0)
+
+[node name="HandRayLeft" type="RayCast2D" parent="."]
+position = Vector2(2, -25)
+target_position = Vector2(-70, 0)
