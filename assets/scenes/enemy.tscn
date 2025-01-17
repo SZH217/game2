@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vnrf2mfsjfu"]
+
+[ext_resource type="Texture2D" uid="uid://bijly8hnsn7ls" path="res://assets/textures/enemy.png" id="1_1ig7n"]
+[ext_resource type="Texture2D" uid="uid://c2lfwykprhfde" path="res://assets/textures/enemymap.png" id="2_52mfq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8nt06"]
+diffuse_texture = ExtResource("1_1ig7n")
+normal_texture = ExtResource("2_52mfq")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xgix"]
+radius = 14.0
+height = 46.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_8nt06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, 5)
+shape = SubResource("CapsuleShape2D_2xgix")

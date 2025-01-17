@@ -40,8 +40,5 @@ func _on_ability_right_leg_mouse_exited() -> void:
 	_sscale_sprite(ability_right_leg, 1.0)
 # Helper function to scale the sprite
 func _sscale_sprite(area: Area2D, scale: float) -> void:
-	var sprite = area.get_child(0)  # Assuming the Sprite2D is the first child
-	if sprite and sprite is Sprite2D:
-		sprite.scale = Vector2(scale, scale)
-	else:
-		print("Sprite not found or is not a Sprite2D")  # Debugging output
+	var sprite = area.get_child(0)
+	sprite.scale = Vector2(scale, scale)  # Debugging output

@@ -42,14 +42,6 @@ script = ExtResource("2_we2vc")
 position = Vector2(188, 352)
 scale = Vector2(10.6131, -0.123869)
 
-[node name="Platform2" parent="Platforms" instance=ExtResource("2_gerlx")]
-position = Vector2(1121, 377)
-scale = Vector2(11.8666, 0.249413)
-
-[node name="Platform3" parent="Platforms" instance=ExtResource("2_gerlx")]
-position = Vector2(1762, 115)
-scale = Vector2(1, 5.52)
-
 [node name="Platform4" parent="Platforms" instance=ExtResource("2_gerlx")]
 position = Vector2(-350, 139)
 scale = Vector2(-0.100882, -4.40948)
