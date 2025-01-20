@@ -56,10 +56,15 @@ func set_hand_returning(value: bool) -> void:
 
 func _ready():
 	# Ensure the audio player starts with a pitch of 1.0
-	audio_stream_player.pitch_scale = 1.0
+	if audio_stream_player != null:
+		audio_stream_player.pitch_scale = 1.0
 	GlobVars.selected_ability_name = "Hand Rocket"
 
 func _physics_process(delta: float) -> void:
+	
+	
+	
+	
 	# If action_pick is pressed, load and display the ability picker
 	if Input.is_action_just_pressed("action_pick") and not is_ability_picker_active:
 		# Slow down time (optional)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1vnrf2mfsjfu"]
+[gd_scene load_steps=8 format=3 uid="uid://d1vnrf2mfsjfu"]
 
 [ext_resource type="Texture2D" uid="uid://bijly8hnsn7ls" path="res://assets/textures/enemy.png" id="1_1ig7n"]
+[ext_resource type="Script" path="res://assets/scripts/enemy.gd" id="1_yqai2"]
 [ext_resource type="Texture2D" uid="uid://c2lfwykprhfde" path="res://assets/textures/enemymap.png" id="2_52mfq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8nt06"]
@@ -11,12 +12,40 @@ normal_texture = ExtResource("2_52mfq")
 radius = 14.0
 height = 46.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_48ctb"]
+radius = 320.351
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eftef"]
+radius = 147.218
+
+[node name="enemy" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+lock_rotation = true
+script = ExtResource("1_yqai2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("CanvasTexture_8nt06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(4, 5)
 shape = SubResource("CapsuleShape2D_2xgix")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_48ctb")
+
+[node name="closeArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="closeArea"]
+shape = SubResource("CircleShape2D_eftef")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="closeArea" to="." method="_on_close_area_body_entered"]
+[connection signal="body_exited" from="closeArea" to="." method="_on_close_area_body_exited"]

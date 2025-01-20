@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
 [ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
-[ext_resource type="Script" path="res://assets/scripts/camera_2d.gd" id="2_we2vc"]
 [ext_resource type="PackedScene" uid="uid://rkbynkrumvhj" path="res://assets/scenes/killzone.tscn" id="4_wmchl"]
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
 [ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
 [ext_resource type="Texture2D" uid="uid://rtxww4btl7o2" path="res://assets/textures/jukebox.png" id="9_k2p3n"]
+[ext_resource type="PackedScene" uid="uid://d1vnrf2mfsjfu" path="res://assets/scenes/enemy.tscn" id="10_64lvh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i81ka"]
 
@@ -26,15 +26,6 @@ texture = ExtResource("9_k2p3n")
 
 [node name="Player" parent="." instance=ExtResource("1_203rm")]
 position = Vector2(192, 338)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(4, -37)
-offset = Vector2(30, -20)
-zoom = Vector2(1.1, 1.1)
-limit_bottom = 640
-limit_smoothed = true
-position_smoothing_speed = 2.425
-script = ExtResource("2_we2vc")
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -60,3 +51,6 @@ shape = SubResource("WorldBoundaryShape2D_i81ka")
 unique_name_in_owner = true
 stream = ExtResource("5_loc5j")
 volume_db = -13.0
+
+[node name="enemy" parent="." instance=ExtResource("10_64lvh")]
+position = Vector2(571, 260)
