@@ -38,9 +38,14 @@ _data = {
 "handrocket": SubResource("Animation_of22r")
 }
 
-[node name="Area2D" type="Area2D"]
+[node name="hand" type="Area2D" groups=["hand_return"]]
 collision_layer = 2
 script = ExtResource("1_8iv1o")
+max_speed = 1200.0
+acceleration = 600.0
+return_speed = 900.0
+hand_speed = 1000.0
+return_distance = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
@@ -56,3 +61,8 @@ shape = SubResource("RectangleShape2D_sse81")
 libraries = {
 "": SubResource("AnimationLibrary_003u0")
 }
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

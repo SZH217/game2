@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6qp4or4b5stk"]
+
+[ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="1_bh1sm"]
+[ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="2_gmg57"]
+[ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="3_opahl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_bh1sm")]
+position = Vector2(-2, 25)
+
+[node name="player" parent="." instance=ExtResource("2_gmg57")]
+position = Vector2(433, 219)
+hand_scene = ExtResource("3_opahl")
+
+[node name="Platform2" parent="." instance=ExtResource("1_bh1sm")]
+position = Vector2(827, -236)
+rotation = 1.5708
+
+[node name="Platform2" parent="Platform2" instance=ExtResource("1_bh1sm")]
+position = Vector2(-227, 130)

@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray()
 
+[global_group]
+
+hand_return=""
+
 [input]
 
 action_c={
