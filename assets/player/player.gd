@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var wallSpeed = 5
 @export var cameraOffset = 50
 @export var offsetSpeed = 2
+@onready var animation_player = $anim
 
 var haveHand = true
 var jump = false
@@ -29,41 +30,26 @@ func _process(delta: float) -> void:
 		$sprite.flip_h = false
 	
 	if !jump and !wall:
-		if haveHand:
-			if is_on_floor():
-				if velocity.x == 0:
-					$anim.play("idle")
-				if velocity.x != 0:
-					$anim.play("running")
-			else:
-				$anim.play("jump_fall")
+		if is_on_floor():
+			if velocity.x == 0:
+				play_animation("idle")
+			if velocity.x != 0:
+				play_animation("running")
 		else:
-			if is_on_floor():
-				if velocity.x == 0:
-					$anim.play("idle_nr")
-			else:
-				$anim.play("jump_fall_nr")
+			if velocity.y > 0:
+				play_animation("jump_fall")
+			elif velocity.y < 0:
+				play_animation("jump_rise")
 	if jump:
-		if haveHand:
-			if velocity.y < 0:
-				$anim.play("jump_rise")
-			if velocity.y > 0:
-				$anim.play("jump_fall")
-			if is_on_floor():
-				jump = false
-		else:
-			if velocity.y < 0:
-				$anim.play("jump_rise_nr")
-			if velocity.y > 0:
-				$anim.play("jump_fall_nr")
-			if is_on_floor():
-				jump = false
+		if velocity.y < 0:
+			play_animation("jump_rise")
+		if velocity.y > 0:
+			play_animation("jump_fall")
+		if is_on_floor():
+			jump = false
 	
 	if wall:
-		if haveHand:
-			$anim.play("wall")
-		else:
-			$anim.play("wall_nr")
+		play_animation("wall")
 
 
 func _physics_process(delta: float) -> void:
@@ -126,6 +112,12 @@ func _physics_process(delta: float) -> void:
 		haveHand = false
 	
 	
+func play_animation(base_anim: String):
+	if not animation_player:
+		return
+	var anim_suffix = "_nr" if !haveHand else ""
+	var full_anim_name = base_anim + anim_suffix
+	animation_player.play(full_anim_name)
 
 
 func launch_hand():

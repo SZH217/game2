@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6qp4or4b5stk"]
+[gd_scene load_steps=6 format=3 uid="uid://c6qp4or4b5stk"]
 
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="1_bh1sm"]
 [ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="2_gmg57"]
 [ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="3_opahl"]
+
+[sub_resource type="Gradient" id="Gradient_mp1um"]
+offsets = PackedFloat32Array(0, 0.805195)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3fbum"]
+gradient = SubResource("Gradient_mp1um")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,3 +28,12 @@ rotation = 1.5708
 
 [node name="Platform2" parent="Platform2" instance=ExtResource("1_bh1sm")]
 position = Vector2(-227, 130)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.930795, 0.796047, 0.765453, 1)
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
+position = Vector2(449, 52)
+texture = SubResource("GradientTexture2D_3fbum")
+texture_scale = 3.86
