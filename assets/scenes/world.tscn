@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1l10tq5xrgbo"]
+[gd_scene load_steps=13 format=3 uid="uid://c1l10tq5xrgbo"]
 
-[ext_resource type="PackedScene" uid="uid://ve3wk084kefn" path="res://assets/scenes/player.tscn" id="1_203rm"]
 [ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
 [ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
@@ -8,7 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
 [ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
 [ext_resource type="Texture2D" uid="uid://rtxww4btl7o2" path="res://assets/textures/jukebox.png" id="9_k2p3n"]
+[ext_resource type="PackedScene" uid="uid://bklmchjfultcj" path="res://assets/scenes/bullet.tscn" id="9_p6kdw"]
+[ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="9_rl4nj"]
 [ext_resource type="PackedScene" uid="uid://d1vnrf2mfsjfu" path="res://assets/scenes/enemy.tscn" id="10_64lvh"]
+[ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="10_p07n1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i81ka"]
 
@@ -24,13 +26,10 @@ position = Vector2(391, 329)
 scale = Vector2(0.30543, 0.30543)
 texture = ExtResource("9_k2p3n")
 
-[node name="Player" parent="." instance=ExtResource("1_203rm")]
-position = Vector2(192, 338)
-
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_gerlx")]
-position = Vector2(188, 352)
+position = Vector2(-392, 390)
 scale = Vector2(10.6131, -0.123869)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("2_gerlx")]
@@ -54,3 +53,8 @@ volume_db = -13.0
 
 [node name="enemy" parent="." instance=ExtResource("10_64lvh")]
 position = Vector2(571, 260)
+bullet = ExtResource("9_p6kdw")
+
+[node name="player" parent="." instance=ExtResource("9_rl4nj")]
+position = Vector2(31, 277)
+hand_scene = ExtResource("10_p07n1")
