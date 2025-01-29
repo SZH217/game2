@@ -15,6 +15,8 @@ var jump = false
 var wall = false
 var walljump = false
 
+var shootAnim = false
+
 var canShoot = false
 
 @export var hand_scene: PackedScene  # Префаб руки
@@ -29,7 +31,7 @@ func _process(delta: float) -> void:
 	if velocity.x > 0 and !wall:
 		$sprite.flip_h = false
 	
-	if !jump and !wall:
+	if !jump and !wall and !shootAnim:
 		if is_on_floor():
 			if velocity.x == 0:
 				play_animation("idle")
@@ -50,6 +52,9 @@ func _process(delta: float) -> void:
 	
 	if wall:
 		play_animation("wall")
+	
+	if shootAnim:
+		animation_player.play("handattack")
 
 
 func _physics_process(delta: float) -> void:
@@ -110,6 +115,7 @@ func _physics_process(delta: float) -> void:
 	if haveHand and canShoot and Input.is_action_just_pressed("action_attack"):
 		launch_hand()
 		haveHand = false
+		shootAnim = true
 	
 	
 func play_animation(base_anim: String):
@@ -134,3 +140,8 @@ func launch_hand():
 
 func on_hand_returned():
 	haveHand = true
+
+
+func _on_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "handattack":
+		shootAnim = false
