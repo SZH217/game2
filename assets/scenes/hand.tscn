@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0co4ewis3qj4"]
+[gd_scene load_steps=8 format=3 uid="uid://c0co4ewis3qj4"]
 
 [ext_resource type="Script" path="res://assets/scripts/hand.gd" id="1_8iv1o"]
+[ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="2_24afu"]
 [ext_resource type="Texture2D" uid="uid://ck0px3gbn8w0b" path="res://assets/textures/hand.png" id="2_c0qp1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wefv2"]
+shader = ExtResource("2_24afu")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sse81"]
 size = Vector2(26, 13)
@@ -47,6 +53,7 @@ return_speed = 900.0
 return_distance = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_wefv2")
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_c0qp1")
 region_enabled = true

@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="3_opahl"]
 
 [sub_resource type="Gradient" id="Gradient_mp1um"]
-offsets = PackedFloat32Array(0, 0.805195)
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.694805)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3fbum"]
@@ -35,5 +36,10 @@ blend_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D"]
 position = Vector2(449, 52)
+texture = SubResource("GradientTexture2D_3fbum")
+texture_scale = 3.86
+
+[node name="PointLight2D" type="PointLight2D" parent="DirectionalLight2D/PointLight2D"]
+position = Vector2(-256, 288)
 texture = SubResource("GradientTexture2D_3fbum")
 texture_scale = 3.86

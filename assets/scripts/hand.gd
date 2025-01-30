@@ -27,12 +27,12 @@ func _process(delta: float) -> void:
 			current_speed += acceleration * delta
 
 		position += hand_direction * current_speed * delta
-		if hand_direction.x < player.global_position.x:
-			$Sprite2D.flip_h = false
-			$Sprite2D.flip_v = false
-		else:
-			$Sprite2D.flip_h = true
-			$Sprite2D.flip_v = true
+
+		# Flip the sprite based on the direction
+		if hand_direction.x < 0:
+			hand_sprite.flip_v = true
+			hand_sprite.flip_h = false
+
 		rotation = hand_direction.angle()
 
 		if global_position.distance_to(player.global_position) > return_distance:
@@ -51,7 +51,6 @@ func _on_body_entered(body):
 	if body == player and canGet:
 		get_tree().call_group("hand_return", "on_hand_returned")
 		queue_free()
-
 
 func _on_timer_timeout() -> void:
 	canGet = true

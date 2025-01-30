@@ -1,16 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=22 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
-[ext_resource type="Shader" path="res://assets/scenes/player.gdshader" id="1_467ms"]
+[ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_467ms"]
 [ext_resource type="Texture2D" uid="uid://hpetlgl8sb4p" path="res://assets/textures/character.png" id="2_cisvq"]
+[ext_resource type="AudioStream" uid="uid://m21ou880i66" path="res://assets/sounds/land.wav" id="4_eou52"]
+[ext_resource type="AudioStream" uid="uid://b21ih43j4y23u" path="res://assets/sounds/jump.wav" id="5_n1sdx"]
+[ext_resource type="AudioStream" uid="uid://btkeau86py4wo" path="res://assets/sounds/attack.wav" id="6_nt8p0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lit8"]
 shader = ExtResource("1_467ms")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_thickness = 1.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_dx6v8"]
-diffuse_texture = ExtResource("2_cisvq")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojrgj"]
 height = 52.0
@@ -360,9 +360,9 @@ script = ExtResource("1_8k20g")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5lit8")
-texture = SubResource("CanvasTexture_dx6v8")
+texture = ExtResource("2_cisvq")
 region_enabled = true
-region_rect = Rect2(384, 640, 128, 128)
+region_rect = Rect2(0, 0, 128, 128)
 
 [node name="colision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.135)
@@ -381,5 +381,16 @@ target_position = Vector2(18, 0)
 
 [node name="left" type="RayCast2D" parent="."]
 target_position = Vector2(-18, 0)
+
+[node name="Land" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eou52")
+volume_db = 3.953
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n1sdx")
+volume_db = 5.943
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nt8p0")
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
