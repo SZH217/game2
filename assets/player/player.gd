@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var speed = 40
 @export var gravity = 20
 @export var jumpForce = 500
-@export var wallSpeed = 5
+@export var wallSpeed = 10
+@export var maxWallSpeed = 80
 @export var cameraOffset = 50
 @export var offsetSpeed = 2
 @onready var animation_player = $anim
@@ -61,6 +62,9 @@ func _physics_process(delta: float) -> void:
 	if !is_on_floor() and !wall:
 		velocity.y += gravity
 	
+	if is_on_floor():
+		wall = false
+	
 	
 	
 	var navigation = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -95,16 +99,17 @@ func _physics_process(delta: float) -> void:
 			velocity.x = maxSpeed * (1 if $left.is_colliding() else -1)  # Отталкивание в противоположную сторону
 			walljump = false
 			
-	
-	if $left.is_colliding() or $right.is_colliding():
-		wall = true
-		canShoot = false
-		if !is_on_floor():  # Только если игрок не на полу
-			velocity.y += wallSpeed  # Сбрасываем вертикальную скорость
-			walljump = true
-	else:
-		wall = false
-		canShoot = true
+	if !is_on_floor():
+		if $left.is_colliding() or $right.is_colliding():
+			wall = true
+			canShoot = false
+			if !is_on_floor():  # Только если игрок не на полу
+				if velocity.y < maxWallSpeed:
+					velocity.y += wallSpeed  # Сбрасываем вертикальную скорость
+					walljump = true
+		else:
+			wall = false
+			canShoot = true
 
 	
 	if walljump:

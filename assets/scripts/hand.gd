@@ -29,8 +29,10 @@ func _process(delta: float) -> void:
 		position += hand_direction * current_speed * delta
 		if hand_direction.x < player.global_position.x:
 			$Sprite2D.flip_h = false
+			$Sprite2D.flip_v = false
 		else:
 			$Sprite2D.flip_h = true
+			$Sprite2D.flip_v = true
 		rotation = hand_direction.angle()
 
 		if global_position.distance_to(player.global_position) > return_distance:

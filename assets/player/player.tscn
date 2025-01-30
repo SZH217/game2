@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=20 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
 [ext_resource type="Shader" path="res://assets/scenes/player.gdshader" id="1_467ms"]
 [ext_resource type="Texture2D" uid="uid://hpetlgl8sb4p" path="res://assets/textures/character.png" id="2_cisvq"]
-[ext_resource type="Texture2D" uid="uid://ngd0vy0c6gyr" path="res://assets/textures/character-map.png" id="4_yrv0x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lit8"]
 shader = ExtResource("1_467ms")
@@ -12,10 +11,8 @@ shader_parameter/line_thickness = 1.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dx6v8"]
 diffuse_texture = ExtResource("2_cisvq")
-normal_texture = ExtResource("4_yrv0x")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojrgj"]
-radius = 6.0
 height = 52.0
 
 [sub_resource type="Animation" id="Animation_ic73k"]
@@ -365,7 +362,7 @@ script = ExtResource("1_8k20g")
 material = SubResource("ShaderMaterial_5lit8")
 texture = SubResource("CanvasTexture_dx6v8")
 region_enabled = true
-region_rect = Rect2(256, 256, 128, 128)
+region_rect = Rect2(384, 640, 128, 128)
 
 [node name="colision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.135)
