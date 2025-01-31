@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var alive = true
 @export var maxSpeed = 500
 @export var speed = 40
 @export var gravity = 23
@@ -31,31 +32,33 @@ func _process(delta: float) -> void:
 	if velocity.x > 0 and !wall:
 		$sprite.flip_h = false
 	
-	if !jump and !wall and !shootAnim:
-		if is_on_floor():
-			if velocity.x == 0:
-				play_animation("idle")
+	if alive:
+		if !jump and !wall and !shootAnim:
+			if is_on_floor():
+				if velocity.x == 0:
+					play_animation("idle")
+				else:
+					play_animation("running")
 			else:
-				play_animation("running")
-		else:
+				if velocity.y > 0:
+					play_animation("jump_fall")
+				elif velocity.y < 0:
+					play_animation("jump_rise")
+
+		if jump:
+			if velocity.y < 0:
+				play_animation("jump_rise")
 			if velocity.y > 0:
 				play_animation("jump_fall")
-			elif velocity.y < 0:
-				play_animation("jump_rise")
-
-	if jump:
-		if velocity.y < 0:
-			play_animation("jump_rise")
-		if velocity.y > 0:
-			play_animation("jump_fall")
-		if is_on_floor():
-			jump = false
+			if is_on_floor():
+				jump = false
+		
+		if wall:
+			play_animation("wall")
+		
+		if shootAnim:
+			animation_player.play("handattack")
 	
-	if wall:
-		play_animation("wall")
-	
-	if shootAnim:
-		animation_player.play("handattack")
 
 func _physics_process(delta: float) -> void:
 	if !is_on_floor() and !wall:
