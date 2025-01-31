@@ -13,6 +13,12 @@ var alive = true
 @onready var animation_player = $anim
 var previous_velocity_y = 0.0
 
+@onready var audio_stream_player: AudioStreamPlayer = %bgm1
+
+@export var ability_picker_scene: PackedScene  # Drag the AbilityPicker.tscn here in the editor
+var ability_picker_instance: Node = null
+var is_ability_picker_active = false
+
 var haveHand = true
 var jump = false
 var wall = false
@@ -61,6 +67,39 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("action_pick") and not is_ability_picker_active:
+		# Slow down time (optional)
+		Engine.time_scale = 0.5
+
+		# Lower the pitch
+		var tween = get_tree().create_tween()
+		tween.tween_property(audio_stream_player, "pitch_scale", 0.5, 0.5)
+
+		# Load the ability picker scene
+		ability_picker_instance = ability_picker_scene.instantiate()
+		
+		if ability_picker_instance:
+			get_tree().root.add_child(ability_picker_instance)
+
+		# Set the ability picker state to active
+		is_ability_picker_active = true
+
+	# If action_pick is released, close the ability picker and restore normal conditions
+	if Input.is_action_just_released("action_pick") and is_ability_picker_active:
+		# Restore normal time scale
+		Engine.time_scale = 1.0
+
+		# Raise the pitch back to normal
+		var tween = get_tree().create_tween()
+		tween.tween_property(audio_stream_player, "pitch_scale", 1.0, 0.5)
+
+		# Remove the ability picker from the scene
+		ability_picker_instance.queue_free()
+		ability_picker_instance = null
+
+		# Set the ability picker state to inactive
+		is_ability_picker_active = false
+	
 	if !is_on_floor() and !wall:
 		velocity.y += gravity  # Apply normal gravity
 	

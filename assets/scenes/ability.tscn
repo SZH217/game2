@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj5f1v3bfobkb"]
+[gd_scene load_steps=8 format=3 uid="uid://dj5f1v3bfobkb"]
 
 [ext_resource type="Texture2D" uid="uid://mx36wmqat110" path="res://icon.svg" id="1_120xd"]
 [ext_resource type="Script" path="res://assets/scripts/ability_picker.gd" id="1_elavw"]
@@ -7,6 +7,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvi0t"]
 render_priority = 0
 shader = ExtResource("1_x1kpr")
+
+[sub_resource type="Gradient" id="Gradient_njwit"]
+colors = PackedColorArray(0, 0, 0, 0.2, 0, 0, 0, 0.2)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5xbp"]
+gradient = SubResource("Gradient_njwit")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onoqc"]
 size = Vector2(128, 122.88)
@@ -20,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_120xd")
+texture = SubResource("GradientTexture2D_m5xbp")
 
 [node name="AbilityPicker" type="Control" parent="."]
 layout_mode = 3
