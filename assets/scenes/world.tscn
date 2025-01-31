@@ -55,6 +55,10 @@ volume_db = -13.0
 position = Vector2(571, 260)
 bullet = ExtResource("9_p6kdw")
 
+[node name="enemy2" parent="." instance=ExtResource("10_64lvh")]
+position = Vector2(1108, 278)
+bullet = ExtResource("9_p6kdw")
+
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
 position = Vector2(31, 277)
 hand_scene = ExtResource("10_p07n1")
