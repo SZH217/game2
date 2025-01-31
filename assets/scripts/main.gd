@@ -12,12 +12,13 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	var gameScene = preload("res://assets/scenes/world.tscn")
-	get_tree().change_scene(gameScene)
+	var game_scene = "res://assets/scenes/world.tscn"
+	get_tree().change_scene_to_file(game_scene)
+
 
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	$settings.visible = true
 
 
 func _on_quit_pressed() -> void:

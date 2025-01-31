@@ -41,6 +41,7 @@ layout_mode = 2
 text = "quit"
 
 [node name="settings" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,10 +91,11 @@ theme_override_font_sizes/font_size = 27
 text = "Resolution"
 
 [node name="resolution" type="OptionButton" parent="settings/image/TextureRect/points/ScrollContainer/GridContainer"]
+texture_filter = 1
 layout_mode = 2
 selected = 0
 item_count = 4
-popup/item_0/text = "1280×720"
+popup/item_0/text = "error"
 popup/item_1/text = "1366×768"
 popup/item_1/id = 1
 popup/item_2/text = "1920×1080"
@@ -108,8 +110,19 @@ text = "Fullscreen"
 
 [node name="CheckButton" type="CheckButton" parent="settings/image/TextureRect/points/ScrollContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="close" type="Button" parent="settings/image/TextureRect/points"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/icon_max_width = 59
+icon = ExtResource("2_jhn8n")
+flat = true
 
 [connection signal="pressed" from="first/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="first/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="first/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="item_selected" from="settings/image/TextureRect/points/ScrollContainer/GridContainer/resolution" to="settings" method="_on_resolution_item_selected"]
+[connection signal="toggled" from="settings/image/TextureRect/points/ScrollContainer/GridContainer/CheckButton" to="settings" method="_on_check_button_toggled"]
+[connection signal="pressed" from="settings/image/TextureRect/points/close" to="settings" method="_on_close_pressed"]
