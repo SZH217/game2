@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=24 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
 [ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_467ms"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://m21ou880i66" path="res://assets/sounds/land.wav" id="4_eou52"]
 [ext_resource type="AudioStream" uid="uid://b21ih43j4y23u" path="res://assets/sounds/jump.wav" id="5_n1sdx"]
 [ext_resource type="AudioStream" uid="uid://btkeau86py4wo" path="res://assets/sounds/attack.wav" id="6_nt8p0"]
+[ext_resource type="PackedScene" uid="uid://7socxwkha3rh" path="res://assets/scenes/pause.tscn" id="8_507ha"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lit8"]
 shader = ExtResource("1_467ms")
@@ -359,6 +360,9 @@ _data = {
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
 ability_picker_scene = ExtResource("2_o5cc4")
+
+[node name="pause" parent="." instance=ExtResource("8_507ha")]
+visible = false
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5lit8")
