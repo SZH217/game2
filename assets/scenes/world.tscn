@@ -597,7 +597,9 @@ texture = ExtResource("9_k2p3n")
 tile_set = SubResource("TileSet_io07y")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_gerlx")]
-position = Vector2(-320, 48)
+visible = false
+position = Vector2(207, 351)
+scale = Vector2(1.56, 0.36)
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("8_jyp76")]
 position = Vector2(612, -74)
@@ -615,11 +617,7 @@ stream = ExtResource("5_loc5j")
 volume_db = -13.0
 
 [node name="enemy" parent="." instance=ExtResource("10_64lvh")]
-position = Vector2(571, 260)
-bullet = ExtResource("9_p6kdw")
-
-[node name="enemy2" parent="." instance=ExtResource("10_64lvh")]
-position = Vector2(1108, 278)
+position = Vector2(578, 255)
 bullet = ExtResource("9_p6kdw")
 
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]

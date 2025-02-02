@@ -32,7 +32,7 @@ var isJumping = false  # Track if the player is currently jumping
 func _ready() -> void:
 	add_to_group("hand_return")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if velocity.x < 0 and !wall:
 		$sprite.flip_h = true
 	if velocity.x > 0 and !wall:
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 			animation_player.play("handattack")
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("action_pick") and not is_ability_picker_active:
 		# Slow down time (optional)
 		Engine.time_scale = 0.5
@@ -133,9 +133,9 @@ func _physics_process(delta: float) -> void:
 			if $camera.offset.x < 0:
 				$camera.offset.x += offsetSpeed
 		if velocity.x > 0:
-			velocity.x -= speed / 4
+			velocity.x -= speed / 4.0
 		if velocity.x < 0:
-			velocity.x += speed / 4
+			velocity.x += speed / 4.0
 	
 	# Jump logic with variable height
 	if Input.is_action_just_pressed("action_c"):

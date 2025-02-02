@@ -39,6 +39,6 @@ func _on_ability_right_leg_mouse_entered() -> void:
 func _on_ability_right_leg_mouse_exited() -> void:
 	_sscale_sprite(ability_right_leg, 1.0)
 # Helper function to scale the sprite
-func _sscale_sprite(area: Area2D, scale: float) -> void:
+func _sscale_sprite(area: Area2D, scale2: float) -> void:
 	var sprite = area.get_child(0)
-	sprite.scale = Vector2(scale, scale)  # Debugging output
+	sprite.scale = Vector2(scale2, scale2)  # Debugging output

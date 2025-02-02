@@ -20,7 +20,7 @@ func _ready() -> void:
 	anim.play("idle")  # Устанавливаем анимацию по умолчанию
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if playerHere and playerClose:
 		anim.play("aim")  # Если игрок близко, переходим в анимацию aim
 		shoot()
