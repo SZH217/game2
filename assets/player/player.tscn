@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=25 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
 [ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_467ms"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://b21ih43j4y23u" path="res://assets/sounds/jump.wav" id="5_n1sdx"]
 [ext_resource type="AudioStream" uid="uid://btkeau86py4wo" path="res://assets/sounds/attack.wav" id="6_nt8p0"]
 [ext_resource type="PackedScene" uid="uid://7socxwkha3rh" path="res://assets/scenes/pause.tscn" id="8_507ha"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_5ma3b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lit8"]
 shader = ExtResource("1_467ms")
@@ -361,14 +363,20 @@ _data = {
 script = ExtResource("1_8k20g")
 ability_picker_scene = ExtResource("2_o5cc4")
 
-[node name="pause" parent="." instance=ExtResource("8_507ha")]
-visible = false
+[node name="hpBar" type="TextureRect" parent="."]
+modulate = Color(0.62, 0.0744, 0.0744, 1)
+custom_minimum_size = Vector2(0, 17.6)
+offset_left = -252.0
+offset_top = -155.0
+offset_right = -118.0
+offset_bottom = -137.0
+texture = SubResource("Texture2DRD_5ma3b")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5lit8")
 texture = ExtResource("2_cisvq")
 region_enabled = true
-region_rect = Rect2(0, 0, 128, 128)
+region_rect = Rect2(256, 256, 128, 128)
 
 [node name="colision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.135)
@@ -381,6 +389,12 @@ libraries = {
 
 [node name="camera" type="Camera2D" parent="."]
 offset = Vector2(0, -20)
+
+[node name="pause" parent="camera" instance=ExtResource("8_507ha")]
+visible = false
+z_index = 10
+offset_top = -20.0
+offset_bottom = -20.0
 
 [node name="right" type="RayCast2D" parent="."]
 target_position = Vector2(18, 0)

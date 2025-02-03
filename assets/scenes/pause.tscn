@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://7socxwkha3rh"]
+[gd_scene load_steps=6 format=3 uid="uid://7socxwkha3rh"]
 
 [ext_resource type="Script" path="res://assets/scenes/pause.gd" id="1_ltp6s"]
 [ext_resource type="Script" path="res://assets/scripts/settings.gd" id="2_ienc4"]
 [ext_resource type="Texture2D" uid="uid://mx36wmqat110" path="res://icon.svg" id="3_1lvcx"]
 
+[sub_resource type="Gradient" id="Gradient_sn56n"]
+colors = PackedColorArray(0, 0, 0, 0.235294, 0, 0, 0, 0.235294)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rid5p"]
+gradient = SubResource("Gradient_sn56n")
+
 [node name="pause" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,13 +20,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ltp6s")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("GradientTexture1D_rid5p")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -39,6 +48,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Continue"
 
+[node name="restart" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
 [node name="options" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings
@@ -50,6 +63,7 @@ text = "Quit"
 
 [node name="settings" type="Panel" parent="."]
 visible = false
+custom_minimum_size = Vector2(640, 360)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,6 +143,7 @@ icon = ExtResource("3_1lvcx")
 flat = true
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="item_selected" from="settings/image/TextureRect/points/ScrollContainer/GridContainer/resolution" to="settings" method="_on_resolution_item_selected"]

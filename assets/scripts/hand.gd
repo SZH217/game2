@@ -44,6 +44,7 @@ func _process(delta: float) -> void:
 	
 	if is_returning:
 		canGet = true
+	
 
 func _on_body_entered(body):
 	if body != player:

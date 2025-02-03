@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		print("hit")
+		player.takehit(10)
 		queue_free()  # Destroy bullet on hit
 
 func _on_timer_timeout() -> void:

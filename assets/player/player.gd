@@ -13,6 +13,8 @@ var alive = true
 @onready var animation_player = $anim
 var previous_velocity_y = 0.0
 
+@export var hp = 100
+
 @onready var audio_stream_player: AudioStreamPlayer = %bgm1
 
 @export var ability_picker_scene: PackedScene  # Drag the AbilityPicker.tscn here in the editor
@@ -37,6 +39,19 @@ func _process(_delta: float) -> void:
 		$sprite.flip_h = true
 	if velocity.x > 0 and !wall:
 		$sprite.flip_h = false
+	
+	if hp <= 0:
+		alive = false
+		$camera/pause/Panel/MarginContainer/VBoxContainer/continue.visible = false
+		$camera/pause.visible = true
+	else:
+		alive = true
+	
+	if hp > 0:
+		$hpBar.scale.x = hp * 0.01
+		$camera/pause/Panel/MarginContainer/VBoxContainer/continue.visible = true
+	else:
+		$hpBar.scale.x = 0
 	
 	if alive:
 		if !jump and !wall and !shootAnim:
@@ -202,3 +217,7 @@ func on_hand_returned():
 func _on_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "handattack":
 		shootAnim = false
+
+
+func takehit(damage):
+	hp -= damage
