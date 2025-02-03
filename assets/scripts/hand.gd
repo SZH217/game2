@@ -52,6 +52,9 @@ func _on_body_entered(body):
 	if body == player and canGet:
 		get_tree().call_group("hand_return", "on_hand_returned")
 		queue_free()
+	
+	if body.name.begins_with('enemy'):
+		body.getHit(20)
 
 func _on_timer_timeout() -> void:
 	canGet = true

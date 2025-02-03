@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="hand" type="Area2D" groups=["hand_return"]]
+scale = Vector2(1.265, 1.265)
 collision_layer = 2
 script = ExtResource("1_8iv1o")
 max_speed = 1200.0
