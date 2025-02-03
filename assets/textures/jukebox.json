@@ -16,7 +16,7 @@
     "duration": 100
    },
    "jukebox 2.ase": {
-    "frame": { "x": 0, "y": 0, "w": 221, "h": 281 },
+    "frame": { "x": 442, "y": 0, "w": 221, "h": 281 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 221, "h": 281 },
@@ -24,7 +24,7 @@
     "duration": 100
    },
    "jukebox 3.ase": {
-    "frame": { "x": 0, "y": 281, "w": 221, "h": 281 },
+    "frame": { "x": 663, "y": 0, "w": 221, "h": 281 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 221, "h": 281 },
@@ -32,7 +32,7 @@
     "duration": 100
    },
    "jukebox 4.ase": {
-    "frame": { "x": 0, "y": 0, "w": 221, "h": 281 },
+    "frame": { "x": 884, "y": 0, "w": 221, "h": 281 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 221, "h": 281 },
@@ -45,7 +45,7 @@
   "version": "1.3.11-dev",
   "image": "jukebox.png",
   "format": "RGBA8888",
-  "size": { "w": 442, "h": 562 },
+  "size": { "w": 1105, "h": 281 },
   "scale": "1",
   "frameTags": [
    { "name": "idle", "from": 0, "to": 0, "direction": "forward", "color": "#000000ff" },

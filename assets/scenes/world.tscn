@@ -603,6 +603,7 @@ shape = SubResource("WorldBoundaryShape2D_pdrhv")
 tile_set = SubResource("TileSet_io07y")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
 position = Vector2(191, 351)
 scale = Vector2(1.64, 0.36)
 
@@ -616,7 +617,7 @@ stream = ExtResource("5_loc5j")
 volume_db = -13.0
 
 [node name="enemy" parent="." instance=ExtResource("10_64lvh")]
-position = Vector2(578, 255)
+position = Vector2(369, 289)
 bullet = ExtResource("9_p6kdw")
 
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
