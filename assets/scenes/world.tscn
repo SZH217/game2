@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1l10tq5xrgbo"]
+[gd_scene load_steps=17 format=3 uid="uid://c1l10tq5xrgbo"]
 
 [ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://rkbynkrumvhj" path="res://assets/scenes/killzone.tscn" id="4_wmchl"]
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
 [ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
-[ext_resource type="Texture2D" uid="uid://rtxww4btl7o2" path="res://assets/textures/jukebox.png" id="9_k2p3n"]
 [ext_resource type="PackedScene" uid="uid://bklmchjfultcj" path="res://assets/scenes/bullet.tscn" id="9_p6kdw"]
 [ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="9_rl4nj"]
 [ext_resource type="PackedScene" uid="uid://d1vnrf2mfsjfu" path="res://assets/scenes/enemy.tscn" id="10_64lvh"]
 [ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="10_p07n1"]
 [ext_resource type="Texture2D" uid="uid://csi5rot7s1ubg" path="res://assets/tilesets/tiles.png" id="12_y14wj"]
+[ext_resource type="PackedScene" uid="uid://dn0v3qgjrighv" path="res://assets/scenes/crosshair.tscn" id="13_il18q"]
+[ext_resource type="PackedScene" uid="uid://bkh3220lwijbs" path="res://assets/scenes/jukebox.tscn" id="13_r6qb0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pdrhv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nh6ys"]
 texture = ExtResource("12_y14wj")
@@ -577,8 +580,6 @@ texture = ExtResource("12_y14wj")
 [sub_resource type="TileSet" id="TileSet_io07y"]
 sources/0 = SubResource("TileSetAtlasSource_nh6ys")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i81ka"]
-
 [node name="world" type="Node2D"]
 script = ExtResource("1_qq2vp")
 
@@ -586,10 +587,15 @@ script = ExtResource("1_qq2vp")
 position = Vector2(615, 443)
 texture = ExtResource("2_o3xwq")
 
-[node name="Jukebox" type="Sprite2D" parent="."]
-position = Vector2(391, 329)
-scale = Vector2(0.30543, 0.30543)
-texture = ExtResource("9_k2p3n")
+[node name="jukebox" parent="." instance=ExtResource("13_r6qb0")]
+position = Vector2(255, 333)
+
+[node name="Killzone" parent="." instance=ExtResource("4_wmchl")]
+position = Vector2(163, 634)
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_pdrhv")
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -597,19 +603,12 @@ texture = ExtResource("9_k2p3n")
 tile_set = SubResource("TileSet_io07y")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_gerlx")]
-visible = false
-position = Vector2(207, 351)
-scale = Vector2(1.56, 0.36)
+position = Vector2(191, 351)
+scale = Vector2(1.64, 0.36)
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("8_jyp76")]
 position = Vector2(612, -74)
 scale = Vector2(19.4395, 0.159211)
-
-[node name="Killzone" parent="." instance=ExtResource("4_wmchl")]
-position = Vector2(188, 571)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_i81ka")
 
 [node name="bgm1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -623,3 +622,4 @@ bullet = ExtResource("9_p6kdw")
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
 position = Vector2(31, 277)
 hand_scene = ExtResource("10_p07n1")
+crosshair_scene = ExtResource("13_il18q")

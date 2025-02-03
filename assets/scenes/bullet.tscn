@@ -14,10 +14,10 @@ modulate = Color(0.619533, 0.402751, 0, 1)
 scale = Vector2(0.140625, 0.03125)
 texture = ExtResource("1_oqn2q")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yffke")
-
-[node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

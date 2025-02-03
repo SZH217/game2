@@ -9,14 +9,14 @@ var lerp_timer: float = 0.0
 var is_pitch_decreasing: bool = false
 var is_pitch_increasing: bool = false
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: CharacterBody2D) -> void:
 	print("dead")
 	Engine.time_scale = 0.5
 	lerp_timer = 0.0
 	is_pitch_decreasing = true
-	body.get_node("CollisionShape2D").queue_free()
+	body.get_node("colision").queue_free()
 	timer.start()
-
+	
 func _process(delta: float) -> void:
 	if is_pitch_decreasing:
 		lerp_timer += delta

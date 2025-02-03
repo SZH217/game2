@@ -29,10 +29,19 @@ var isJumping = false  # Track if the player is currently jumping
 
 @export var hand_scene: PackedScene  # Prefab for the hand
 
+@export var crosshair_scene: PackedScene  # Drag the Crosshair.tscn here in the editor
+var crosshair_instance: Node2D = null
+
 func _ready() -> void:
 	add_to_group("hand_return")
+	crosshair_instance = crosshair_scene.instantiate()
+	get_parent().add_child.call_deferred(crosshair_instance)
 
 func _process(_delta: float) -> void:
+	if crosshair_instance:
+		# Move the crosshair to the mouse position
+		crosshair_instance.global_position = get_global_mouse_position()
+		
 	if velocity.x < 0 and !wall:
 		$sprite.flip_h = true
 	if velocity.x > 0 and !wall:
@@ -173,6 +182,8 @@ func _physics_process(_delta: float) -> void:
 	
 	# Hand attack mechanic
 	if haveHand and canShoot and Input.is_action_just_pressed("action_attack"):
+		if crosshair_instance:
+			crosshair_instance.get_node("AnimationPlayer").play("shoot")
 		$Attack.play()
 		launch_hand()
 		haveHand = false

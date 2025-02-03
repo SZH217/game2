@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn0v3qgjrighv"]
+
+[ext_resource type="Script" path="res://assets/scripts/crosshair.gd" id="1_3cyx6"]
+[ext_resource type="Texture2D" uid="uid://b6j6reqy603wx" path="res://assets/textures/crosshair.png" id="1_3k3od"]
+
+[sub_resource type="Animation" id="Animation_tvlbu"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 27, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f1exg"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(27, 0, 27, 27), Rect2(0, 27, 27, 27), Rect2(27, 27, 27, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dilju"]
+_data = {
+"crosshair": SubResource("Animation_tvlbu"),
+"shoot": SubResource("Animation_f1exg")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3cyx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3k3od")
+region_enabled = true
+region_rect = Rect2(0, 0, 27, 27)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dilju")
+}
