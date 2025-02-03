@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=26 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
 [ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_467ms"]
 [ext_resource type="Texture2D" uid="uid://hpetlgl8sb4p" path="res://assets/textures/character.png" id="2_cisvq"]
 [ext_resource type="PackedScene" uid="uid://dj5f1v3bfobkb" path="res://assets/scenes/ability.tscn" id="2_o5cc4"]
+[ext_resource type="PackedScene" uid="uid://c0co4ewis3qj4" path="res://assets/scenes/hand.tscn" id="3_3lrhk"]
+[ext_resource type="PackedScene" uid="uid://dn0v3qgjrighv" path="res://assets/scenes/crosshair.tscn" id="4_0oxcm"]
 [ext_resource type="AudioStream" uid="uid://m21ou880i66" path="res://assets/sounds/land.wav" id="4_eou52"]
 [ext_resource type="AudioStream" uid="uid://b21ih43j4y23u" path="res://assets/sounds/jump.wav" id="5_n1sdx"]
 [ext_resource type="AudioStream" uid="uid://btkeau86py4wo" path="res://assets/sounds/attack.wav" id="6_nt8p0"]
@@ -357,11 +359,11 @@ _data = {
 "wall_nr": SubResource("Animation_r7uvq")
 }
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ds7ol"]
-
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
 ability_picker_scene = ExtResource("2_o5cc4")
+hand_scene = ExtResource("3_3lrhk")
+crosshair_scene = ExtResource("4_0oxcm")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5lit8")
@@ -377,24 +379,6 @@ shape = SubResource("CapsuleShape2D_ojrgj")
 libraries = {
 "": SubResource("AnimationLibrary_58u32")
 }
-
-[node name="hpBar" type="TextureRect" parent="."]
-modulate = Color(0, 0.592157, 0, 1)
-custom_minimum_size = Vector2(0, 17.6)
-offset_left = -252.0
-offset_top = -155.0
-offset_right = -118.0
-offset_bottom = -137.0
-texture = SubResource("CanvasTexture_ds7ol")
-
-[node name="camera" type="Camera2D" parent="."]
-offset = Vector2(0, -20)
-
-[node name="pause" parent="camera" instance=ExtResource("8_507ha")]
-visible = false
-z_index = 10
-offset_top = -20.0
-offset_bottom = -20.0
 
 [node name="right" type="RayCast2D" parent="."]
 target_position = Vector2(18, 0)
@@ -413,4 +397,17 @@ volume_db = 5.943
 [node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_nt8p0")
 
+[node name="camera" type="Camera2D" parent="."]
+offset = Vector2(0, -20)
+
+[node name="pause" parent="camera" instance=ExtResource("8_507ha")]
+visible = false
+z_index = 10
+offset_top = -20.0
+offset_bottom = -20.0
+
+[node name="HealingTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]

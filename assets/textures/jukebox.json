@@ -30,14 +30,6 @@
     "spriteSourceSize": { "x": 0, "y": 0, "w": 221, "h": 281 },
     "sourceSize": { "w": 221, "h": 281 },
     "duration": 100
-   },
-   "jukebox 4.ase": {
-    "frame": { "x": 884, "y": 0, "w": 221, "h": 281 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 221, "h": 281 },
-    "sourceSize": { "w": 221, "h": 281 },
-    "duration": 100
    }
  },
  "meta": {
@@ -45,11 +37,10 @@
   "version": "1.3.11-dev",
   "image": "jukebox.png",
   "format": "RGBA8888",
-  "size": { "w": 1105, "h": 281 },
+  "size": { "w": 884, "h": 281 },
   "scale": "1",
   "frameTags": [
-   { "name": "idle", "from": 0, "to": 0, "direction": "forward", "color": "#000000ff" },
-   { "name": "music", "from": 1, "to": 4, "direction": "forward", "color": "#000000ff" }
+   { "name": "bop", "from": 0, "to": 3, "direction": "forward", "color": "#000000ff" }
   ],
   "layers": [
    { "name": "Layer", "opacity": 255, "blendMode": "normal" }
