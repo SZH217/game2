@@ -37,11 +37,11 @@ func _ready():
 	else:
 		print("Player node is successfully assigned!")
 
-func _process(delta):
+func _process(_delta):
 	if player != null:
 		is_nearby = player.position.distance_to(position) <= detection_range
 
-func _input(event):
+func _input(_event):
 	if is_nearby and Input.is_action_just_pressed("interact"):
 		toggle_music()
 

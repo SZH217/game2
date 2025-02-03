@@ -9,8 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://btkeau86py4wo" path="res://assets/sounds/attack.wav" id="6_nt8p0"]
 [ext_resource type="PackedScene" uid="uid://7socxwkha3rh" path="res://assets/scenes/pause.tscn" id="8_507ha"]
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_5ma3b"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lit8"]
 shader = ExtResource("1_467ms")
 shader_parameter/line_color = Color(0, 0, 0, 1)
@@ -359,18 +357,11 @@ _data = {
 "wall_nr": SubResource("Animation_r7uvq")
 }
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ds7ol"]
+
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
 ability_picker_scene = ExtResource("2_o5cc4")
-
-[node name="hpBar" type="TextureRect" parent="."]
-modulate = Color(0.62, 0.0744, 0.0744, 1)
-custom_minimum_size = Vector2(0, 17.6)
-offset_left = -252.0
-offset_top = -155.0
-offset_right = -118.0
-offset_bottom = -137.0
-texture = SubResource("Texture2DRD_5ma3b")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5lit8")
@@ -386,6 +377,15 @@ shape = SubResource("CapsuleShape2D_ojrgj")
 libraries = {
 "": SubResource("AnimationLibrary_58u32")
 }
+
+[node name="hpBar" type="TextureRect" parent="."]
+modulate = Color(0, 0.592157, 0, 1)
+custom_minimum_size = Vector2(0, 17.6)
+offset_left = -252.0
+offset_top = -155.0
+offset_right = -118.0
+offset_bottom = -137.0
+texture = SubResource("CanvasTexture_ds7ol")
 
 [node name="camera" type="Camera2D" parent="."]
 offset = Vector2(0, -20)

@@ -11,7 +11,7 @@ var playerClose = false
 @onready var spark: Node2D = $spark
 @onready var sparkanim: AnimationPlayer = $spark/AnimationPlayer
 
-@export var hp = 100
+@export var hp = 1
 
 var backspeed = 5
 var maxbackspeed = 100
