@@ -20,6 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		player.takehit(10)
 		queue_free()  # Destroy bullet on hit
+		
 
 func _on_timer_timeout() -> void:
 	queue_free()  # Destroy bullet after 3 seconds

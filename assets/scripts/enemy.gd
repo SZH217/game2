@@ -7,24 +7,25 @@ var playerHere = false
 var gravity = 20
 var playerClose = false
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D  # Убедитесь, что у врага есть спрайт
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var spark: Node2D = $spark
+@onready var sparkanim: AnimationPlayer = $spark/AnimationPlayer
 
 var backspeed = 5
 var maxbackspeed = 100
 
-@export var bullet: PackedScene  # Убедитесь, что это назначено в инспекторе
-var can_shoot = true  # Флаг для контроля стрельбы
+@export var bullet: PackedScene
+var can_shoot = true
+var shooting = false  # Ensures shooting happens at intervals, not every frame
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	anim.play("idle")  # Устанавливаем анимацию по умолчанию
+	anim.play("idle")
+	spark.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if playerHere and playerClose:
-		anim.play("aim")  # Если игрок близко, переходим в анимацию aim
-		shoot()
-		# Определяем направление взгляда врага на игрока
+		if not shooting:  
+			shoot()
 		sprite.flip_h = player.global_position.x > position.x
 		return
 	
@@ -32,15 +33,15 @@ func _process(_delta: float) -> void:
 		if player.global_position.x > position.x:
 			if linear_velocity.x < maxSpeed:
 				linear_velocity.x += speed
-				anim.play("run")  # Запускаем анимацию бега
-				sprite.flip_h = true  # Отражаем спрайт вправо
+				anim.play("run")
+				sprite.flip_h = true
 		elif player.global_position.x < position.x:
 			if linear_velocity.x > -maxSpeed:
 				linear_velocity.x -= speed
-				anim.play("run")  # Запускаем анимацию бега
-				sprite.flip_h = false  # Оставляем спрайт по умолчанию (влево)
+				anim.play("run")
+				sprite.flip_h = false
 	else:
-		anim.play("idle")  # Если нет движения, переходим в idle
+		anim.play("idle")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "player":
@@ -59,30 +60,43 @@ func _on_close_area_body_exited(body: Node2D) -> void:
 		playerClose = false
 
 func shoot():
-	if not can_shoot:  # Используем флаг can_shoot вместо функции shoot
+	if not can_shoot:
 		return
 	
-	anim.play("aim")  # Запускаем анимацию стрельбы
-	
-	# Создаем экземпляр пули
-	var bulletInst = bullet.instantiate()
-	
-	# Вычисляем направление от врага к игроку
-	var direction = (player.global_position - global_position).normalized()
-	
-	# Устанавливаем позицию пули
-	var launch_distance = 40.0
-	var launch_position = global_position + direction * launch_distance
-	bulletInst.global_position = launch_position
-	
-	# Задаем скорость пули (используем linear_velocity для RigidBody2D)
-	if bulletInst is RigidBody2D:
-		bulletInst.linear_velocity = direction * 500  # Скорость пули
-	
-	# Добавляем пулю на сцену
-	get_parent().call_deferred("add_child", bulletInst)
-	
-	# Устанавливаем задержку перед следующим выстрелом
 	can_shoot = false
-	await get_tree().create_timer(0.5).timeout  # Задержка 1 секунда
+	shooting = true  
+
+	# Start animation immediately
+	anim.play("aim")
+
+	# Flip spark correctly around enemy center
+	var flip_direction = -1 if sprite.flip_h else 1
+	spark.scale.x = flip_direction
+	
+	# Adjust spark position relative to enemy center
+	var offset_x = -28 # Adjust this value based on your enemy’s size
+	spark.position.x = offset_x * flip_direction
+
+	# Show spark and play its animation immediately
+	spark.visible = true
+	sparkanim.play("g")
+
+	# Fire the bullet instantly when the first frame plays
+	var bulletInst = bullet.instantiate()
+	var direction = (player.global_position - global_position).normalized()
+	var launch_position = global_position + direction * 40.0
+	bulletInst.global_position = launch_position
+
+	if bulletInst is RigidBody2D:
+		bulletInst.linear_velocity = direction * 500
+	
+	get_parent().call_deferred("add_child", bulletInst)
+
+	# Short delay to let the first frame of the animation play properly
+	await get_tree().create_timer(0.05).timeout  
+	anim.seek(anim.current_animation_length, true)  # Hold on last frame
+
+	# Wait before allowing next shot
+	await get_tree().create_timer(0.5).timeout
 	can_shoot = true
+	shooting = false  
