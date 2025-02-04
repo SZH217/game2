@@ -11,7 +11,7 @@ var playerClose = false
 @onready var spark: Node2D = $spark
 @onready var sparkanim: AnimationPlayer = $spark/AnimationPlayer
 
-@export var hp = 1
+@export var hp = 100
 
 var backspeed = 5
 var maxbackspeed = 100
@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
 			shoot()
 		sprite.flip_h = player.global_position.x > position.x
 		return
-	
 	if hp <= 0:
 		queue_free()
 	
@@ -108,4 +107,5 @@ func shoot():
 
 func getHit(damage):
 	hp -= damage
-	print(hp)
+	if hp <= 0:
+		queue_free()

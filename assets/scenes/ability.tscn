@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj5f1v3bfobkb"]
+[gd_scene load_steps=8 format=3 uid="uid://dj5f1v3bfobkb"]
 
-[ext_resource type="Texture2D" uid="uid://mx36wmqat110" path="res://icon.svg" id="1_120xd"]
 [ext_resource type="Script" path="res://assets/scenes/ability.gd" id="1_q4mdt"]
+[ext_resource type="Texture2D" uid="uid://bf6os4sxsu6wm" path="res://assets/textures/rocket.png" id="2_04hm7"]
 [ext_resource type="Texture2D" uid="uid://bvtv2mlsrl7f0" path="res://assets/textures/head.png" id="3_q1r7a"]
+[ext_resource type="Texture2D" uid="uid://cy37egcdbftg7" path="res://assets/textures/melee.png" id="4_gieq4"]
+[ext_resource type="Texture2D" uid="uid://b5d0g86o5sc3q" path="res://assets/textures/leg.png" id="5_q2ngj"]
 
 [sub_resource type="Gradient" id="Gradient_6hrh3"]
 colors = PackedColorArray(0, 0, 0, 0.235294, 0, 0, 0, 0.235294)
@@ -22,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_q4mdt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(900, 500)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,17 +40,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 140
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 140
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 270
+theme_override_constants/margin_bottom = 80
 
 [node name="up" type="Button" parent="TextureRect/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-icon = ExtResource("1_120xd")
+icon = ExtResource("2_04hm7")
 flat = true
 expand_icon = true
 
@@ -65,7 +68,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-icon = ExtResource("1_120xd")
+icon = ExtResource("4_gieq4")
 flat = true
 expand_icon = true
 
@@ -74,7 +77,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-icon = ExtResource("1_120xd")
+icon = ExtResource("5_q2ngj")
 flat = true
 expand_icon = true
 

@@ -15,6 +15,13 @@ var alive = true
 var previous_velocity_y = 0.0
 
 
+var hit = false
+var hit_timer = 0.5
+
+var attack = false
+var attack2 = false
+
+
 # HP Bar & Healing Settings
 @onready var hpbar: TextureRect = get_tree().get_first_node_in_group("hpbar")
 @onready var hpbaranim: AnimationPlayer = get_tree().get_first_node_in_group("hpbaranim")
@@ -38,6 +45,7 @@ var isJumping = false
 @export var hand_scene: PackedScene
 @export var crosshair_scene: PackedScene
 var crosshair_instance: Node2D = null
+var dashScale = 5
 
 # Initialization
 func _ready() -> void:
@@ -56,6 +64,8 @@ func _process(_delta: float) -> void:
 	update_hp_bar()
 	update_player_animation()
 	ability()
+	
+	
 
 # Update crosshair position to follow mouse
 func update_crosshair_position() -> void:
@@ -106,7 +116,7 @@ func update_hp_bar() -> void:
 # Update animations based on player state
 func update_player_animation() -> void:
 	if alive:
-		if !jump and !wall and !shootAnim:
+		if !jump and !wall and !shootAnim and !attack and !attack2:
 			if is_on_floor():
 				if velocity.x == 0:
 					play_animation("idle")
@@ -128,6 +138,10 @@ func update_player_animation() -> void:
 			play_animation("wall")
 		elif shootAnim:
 			animation_player.play("handattack")
+		elif attack:
+			animation_player.play("jab")
+		elif attack2:
+			animation_player.play("jab2")
 
 # Play specified animation based on current state
 func play_animation(base_anim: String) -> void:
@@ -232,9 +246,11 @@ func handle_wallslide_and_shooting() -> void:
 		
 		match current:
 			1:
-				pass
+				melee_attack()
 			2:
 				launch_hand()
+			3:
+				dash()
 		
 
 # Launch hand attack
@@ -257,14 +273,21 @@ func on_hand_returned() -> void:
 
 # Reset shooting animation when it finishes
 func _on_anim_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "handattack":
-		shootAnim = false
+	match anim_name:
+		"handattack":
+			shootAnim = false
+		"jab":
+			attack = false
+		'jab2':
+			attack2 = false
 
 # Handle taking damage
 func takehit(damage: int) -> void:
 	hp -= damage
 	hp = max(hp, 0)
 	update_hp_bar()
+	$Timer.start(hit_timer)
+	$CPUParticles2D.emitting = true
 
 	# Play animations based on HP threshold
 	if hp <= 20:
@@ -290,9 +313,59 @@ func ability():
 	if Input.is_action_pressed('action_pick'):
 		$camera/ability.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Engine.time_scale = 0.1
 		
 	else:
 		$camera/ability.visible = false
+		Engine.time_scale = 1
 	
 	current = $camera/ability.current
 	
+func melee_attack():
+	if $sprite.flip_h == true:
+		$attack/CollisionShape2D.position.x = -30
+	else:
+		$attack/CollisionShape2D.position.x = 30
+	
+	# Всегда активируем коллайдер при атаке
+	attack_colision()
+	
+	# Запускаем таймер для деактивации коллайдера
+	$attack_timer.start()
+	
+	# Немедленная проверка столкновений
+	var overlapping_bodies = $attack.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.name.begins_with('enemy'):
+			body.getHit(10)
+			# Наносим урон здесь
+
+	# Переключение анимаций
+	if !attack:
+		attack = true
+		animation_player.play("jab")
+	else:
+		attack = false
+		attack2 = true
+		animation_player.play("jab2")
+
+func attack_colision():
+	$attack/CollisionShape2D.disabled = false
+
+
+func _on_timer_timeout() -> void:
+	$CPUParticles2D.emitting = false
+
+
+func _on_attack_body_entered(body: Node2D) -> void:
+	if body.name.begins_with('enemy'):
+		body.getHit(10)
+
+
+
+func _on_attack_timer_timeout() -> void:
+	$attack/CollisionShape2D.disabled = true
+
+
+func dash():
+	velocity += (get_global_mouse_position() - global_position) * dashScale

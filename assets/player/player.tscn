@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bk54mwgc83x41"]
+[gd_scene load_steps=30 format=3 uid="uid://bk54mwgc83x41"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_8k20g"]
 [ext_resource type="Shader" path="res://assets/shaders/player.gdshader" id="1_467ms"]
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(256, 256, 128, 128), Rect2(384, 256, 128, 128), Rect2(512, 256, 128, 128), Rect2(640, 256, 128, 128), Rect2(768, 256, 128, 128)]
+"values": [Rect2(0, 256, 128, 128), Rect2(128, 256, 128, 128), Rect2(256, 256, 128, 128), Rect2(384, 256, 128, 128), Rect2(512, 256, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,7 +112,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 384, 128, 128), Rect2(0, 384, 128, 128), Rect2(0, 384, 128, 128), Rect2(0, 384, 128, 128), Rect2(128, 384, 128, 128), Rect2(128, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(384, 384, 128, 128), Rect2(384, 384, 128, 128)]
+"values": [Rect2(640, 256, 128, 128), Rect2(640, 256, 128, 128), Rect2(640, 256, 128, 128), Rect2(640, 256, 128, 128), Rect2(768, 256, 128, 128), Rect2(768, 256, 128, 128), Rect2(896, 256, 128, 128), Rect2(896, 256, 128, 128), Rect2(896, 256, 128, 128), Rect2(896, 256, 128, 128), Rect2(896, 256, 128, 128), Rect2(0, 384, 128, 128), Rect2(0, 384, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -139,7 +139,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 256, 128, 128), Rect2(0, 256, 128, 128), Rect2(128, 256, 128, 128), Rect2(128, 256, 128, 128)]
+"values": [Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(896, 128, 128, 128), Rect2(896, 128, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -166,7 +166,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(640, 512, 128, 128), Rect2(768, 512, 128, 128), Rect2(0, 640, 128, 128), Rect2(128, 640, 128, 128)]
+"values": [Rect2(128, 512, 128, 128), Rect2(256, 512, 128, 128), Rect2(384, 512, 128, 128), Rect2(512, 512, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -193,7 +193,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(640, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128), Rect2(768, 128, 128, 128)]
+"values": [Rect2(512, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128), Rect2(640, 128, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -220,7 +220,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(384, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128), Rect2(512, 512, 128, 128)]
+"values": [Rect2(896, 384, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128), Rect2(0, 512, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -247,7 +247,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(512, 0, 128, 128), Rect2(640, 0, 128, 128), Rect2(768, 0, 128, 128), Rect2(0, 128, 128, 128), Rect2(128, 128, 128, 128), Rect2(256, 128, 128, 128), Rect2(384, 128, 128, 128), Rect2(512, 128, 128, 128)]
+"values": [Rect2(512, 0, 128, 128), Rect2(640, 0, 128, 128), Rect2(768, 0, 128, 128), Rect2(896, 0, 128, 128), Rect2(0, 128, 128, 128), Rect2(128, 128, 128, 128), Rect2(256, 128, 128, 128), Rect2(384, 128, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -274,7 +274,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(512, 384, 128, 128), Rect2(640, 384, 128, 128), Rect2(768, 384, 128, 128), Rect2(0, 512, 128, 128), Rect2(128, 512, 128, 128), Rect2(256, 512, 128, 128)]
+"values": [Rect2(128, 384, 128, 128), Rect2(256, 384, 128, 128), Rect2(384, 384, 128, 128), Rect2(512, 384, 128, 128), Rect2(640, 384, 128, 128), Rect2(768, 384, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -301,7 +301,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(256, 640, 128, 128), Rect2(256, 640, 128, 128), Rect2(256, 640, 128, 128), Rect2(384, 640, 128, 128), Rect2(384, 640, 128, 128), Rect2(384, 640, 128, 128)]
+"values": [Rect2(640, 512, 128, 128), Rect2(640, 512, 128, 128), Rect2(640, 512, 128, 128), Rect2(768, 512, 128, 128), Rect2(768, 512, 128, 128), Rect2(768, 512, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -328,7 +328,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Rect2(512, 640, 128, 128), Rect2(640, 640, 128, 128)]
+"values": [Rect2(896, 512, 128, 128), Rect2(0, 640, 128, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -343,12 +343,98 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_pbu3k"]
+length = 0.37
+step = 0.048
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.047619, 0.0952381, 0.142857, 0.190476, 0.238095, 0.285714, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(128, 640, 128, 128), Rect2(256, 640, 128, 128), Rect2(384, 640, 128, 128), Rect2(512, 640, 128, 128), Rect2(640, 640, 128, 128), Rect2(640, 640, 128, 128), Rect2(768, 640, 128, 128), Rect2(896, 640, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.047619, 0.0952381, 0.142857, 0.190476, 0.238095, 0.285714, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_de7c4"]
+length = 0.4
+step = 0.045
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0454545, 0.0909091, 0.136364, 0.181818, 0.227273, 0.272727, 0.318182, 0.363636),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 768, 128, 128), Rect2(128, 768, 128, 128), Rect2(256, 768, 128, 128), Rect2(384, 768, 128, 128), Rect2(512, 768, 128, 128), Rect2(640, 768, 128, 128), Rect2(768, 768, 128, 128), Rect2(896, 768, 128, 128), Rect2(0, 0, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0454545, 0.0909091, 0.136364, 0.181818, 0.227273, 0.272727, 0.318182, 0.363636),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_un1x8"]
+length = 3.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(128, 896, 128, 128), Rect2(128, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(384, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(512, 896, 128, 128), Rect2(640, 896, 128, 128), Rect2(768, 896, 128, 128), Rect2(768, 896, 128, 128), Rect2(768, 896, 128, 128), Rect2(640, 896, 128, 128), Rect2(512, 896, 128, 128), Rect2(0, 896, 128, 128), Rect2(128, 896, 128, 128), Rect2(128, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(256, 896, 128, 128), Rect2(384, 896, 128, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_58u32"]
 _data = {
 "handattack": SubResource("Animation_ic73k"),
 "handrocket": SubResource("Animation_320aa"),
 "idle": SubResource("Animation_e425v"),
+"idle_nohead": SubResource("Animation_un1x8"),
 "idle_nr": SubResource("Animation_0y2dd"),
+"jab": SubResource("Animation_pbu3k"),
+"jab2": SubResource("Animation_de7c4"),
 "jump_fall": SubResource("Animation_qn563"),
 "jump_fall_nr": SubResource("Animation_k4ujv"),
 "jump_rise": SubResource("Animation_iskld"),
@@ -358,6 +444,8 @@ _data = {
 "wall": SubResource("Animation_xm05p"),
 "wall_nr": SubResource("Animation_r7uvq")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_senci"]
 
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
@@ -369,7 +457,7 @@ crosshair_scene = ExtResource("4_0oxcm")
 material = SubResource("ShaderMaterial_5lit8")
 texture = ExtResource("2_cisvq")
 region_enabled = true
-region_rect = Rect2(256, 256, 128, 128)
+region_rect = Rect2(0, 0, 128, 128)
 
 [node name="colision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.135)
@@ -417,5 +505,32 @@ offset_bottom = 160.925
 [node name="HealingTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 0.7165, 0.19, 1)
+position = Vector2(0, 10.7)
+emitting = false
+amount = 25
+direction = Vector2(0, -1)
+gravity = Vector2(0, 900)
+initial_velocity_min = 223.76
+initial_velocity_max = 375.26
+scale_amount_min = 5.0
+scale_amount_max = 7.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="attack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_senci")
+disabled = true
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
