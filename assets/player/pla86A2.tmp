@@ -361,6 +361,15 @@ _data = {
 
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
+maxSpeed = null
+speed = null
+gravity = null
+jumpForce = null
+jump_hold_factor = null
+wallSpeed = null
+maxWallSpeed = null
+cameraOffset = null
+offsetSpeed = null
 hp = 20
 hand_scene = ExtResource("3_3lrhk")
 crosshair_scene = ExtResource("4_0oxcm")
@@ -408,11 +417,6 @@ offset_bottom = -20.0
 
 [node name="ability" parent="camera" instance=ExtResource("2_o5cc4")]
 visible = false
-custom_minimum_size = Vector2(640, 360)
-offset_left = -321.0
-offset_top = -199.075
-offset_right = 319.0
-offset_bottom = 160.925
 
 [node name="HealingTimer" type="Timer" parent="."]
 wait_time = 0.5

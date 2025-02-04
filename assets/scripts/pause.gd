@@ -5,6 +5,8 @@ func _process(_delta: float) -> void:
 		visible = true
 	if visible:
 		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
 	if !visible:
 		get_tree().paused = false
 
@@ -14,6 +16,7 @@ func _on_continue_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	$settings.visible = true
+	$Panel.visible = false
 
 
 func _on_quit_pressed() -> void:
@@ -23,3 +26,7 @@ func _on_quit_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_close_pressed() -> void:
+	$Panel.visible = true

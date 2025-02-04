@@ -19,6 +19,8 @@ func _ready() -> void:
 func _on_ability_left_hand_mouse_entered() -> void:
 	_sscale_sprite(ability_left_hand, 1.2)
 	select_ability("Left Hand")
+	print("dawdawdawwdw")
+	$AbilityLeftLeg/Sprite2D.scale.x = 5
 func _on_ability_left_hand_mouse_exited() -> void:
 	_sscale_sprite(ability_left_hand, 1.0)
 func select_ability(ability: String):

@@ -10,7 +10,7 @@ extends Area2D
 
 var player: CharacterBody2D
 var hand_direction: Vector2 = Vector2.ZERO
-var current_speed: float = 300.0
+var current_speed: float = 800.0
 var is_returning: bool = false
 var canGet = false
 var getTime = 0.2

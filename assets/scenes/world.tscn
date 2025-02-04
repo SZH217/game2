@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1l10tq5xrgbo"]
+[gd_scene load_steps=14 format=3 uid="uid://c1l10tq5xrgbo"]
 
-[ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
 [ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
 [ext_resource type="PackedScene" uid="uid://rkbynkrumvhj" path="res://assets/scenes/killzone.tscn" id="4_wmchl"]
@@ -579,7 +578,6 @@ texture = ExtResource("12_y14wj")
 sources/0 = SubResource("TileSetAtlasSource_nh6ys")
 
 [node name="world" type="Node2D"]
-script = ExtResource("1_qq2vp")
 
 [node name="PaintFullscreen" type="Sprite2D" parent="."]
 position = Vector2(614, 455)
@@ -627,6 +625,7 @@ stream = ExtResource("5_loc5j")
 volume_db = -13.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_omi2j")]
+layer = 0
 
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
 position = Vector2(-25, 327)

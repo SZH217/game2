@@ -14,17 +14,18 @@ var alive = true
 @onready var animation_player = $anim
 var previous_velocity_y = 0.0
 
+
 # HP Bar & Healing Settings
 @onready var hpbar: TextureRect = get_tree().get_first_node_in_group("hpbar")
 @onready var hpbaranim: AnimationPlayer = get_tree().get_first_node_in_group("hpbaranim")
 @onready var healing_timer: Timer = $HealingTimer
 @export var hp = 100
 
+
 # Audio and Ability Picker
 @onready var audio_stream_player: AudioStreamPlayer = %bgm1
-@export var ability_picker_scene: PackedScene
-var ability_picker_instance: Node = null
-var is_ability_picker_active = false
+
+var current = 0
 
 # Hand Attack & Crosshair
 var haveHand = true
@@ -54,6 +55,7 @@ func _process(_delta: float) -> void:
 	update_hp_bar_animation()
 	update_hp_bar()
 	update_player_animation()
+	ability()
 
 # Update crosshair position to follow mouse
 func update_crosshair_position() -> void:
@@ -137,7 +139,6 @@ func play_animation(base_anim: String) -> void:
 
 # Physics Update (Player Movement)
 func _physics_process(_delta: float) -> void:
-	handle_ability_picker()
 	handle_gravity_and_movement()
 	handle_jump_and_walljump()
 	handle_wallslide_and_shooting()
@@ -151,23 +152,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 # Handle ability picker activation and deactivation
-func handle_ability_picker() -> void:
-	if Input.is_action_just_pressed("action_pick") and not is_ability_picker_active:
-		Engine.time_scale = 0.5
-		var tween = get_tree().create_tween()
-		tween.tween_property(audio_stream_player, "pitch_scale", 0.5, 0.5)
-		ability_picker_instance = ability_picker_scene.instantiate()
-		if ability_picker_instance:
-			get_tree().root.add_child(ability_picker_instance)
-		is_ability_picker_active = true
 
-	if Input.is_action_just_released("action_pick") and is_ability_picker_active:
-		Engine.time_scale = 1.0
-		var tween = get_tree().create_tween()
-		tween.tween_property(audio_stream_player, "pitch_scale", 1.0, 0.5)
-		ability_picker_instance.queue_free()
-		ability_picker_instance = null
-		is_ability_picker_active = false
 
 # Handle gravity, movement and wall sliding
 func handle_gravity_and_movement() -> void:
@@ -244,14 +229,20 @@ func handle_wallslide_and_shooting() -> void:
 		if crosshair_instance:
 			crosshair_instance.get_node("AnimationPlayer").play("shoot")
 		$Attack.play()
-		launch_hand()
-		haveHand = false
-		shootAnim = true
+		
+		match current:
+			1:
+				pass
+			2:
+				launch_hand()
+		
 
 # Launch hand attack
 func launch_hand() -> void:
 	if not hand_scene:
 		return
+	haveHand = false
+	shootAnim = true
 	var launch_distance = 50.0
 	var hand_instance = hand_scene.instantiate()
 	hand_instance.hand_direction = (get_global_mouse_position() - global_position).normalized()
@@ -291,3 +282,17 @@ func _on_healing_timer_timeout() -> void:
 		hp += 0.2
 		hp = min(hp, 100)
 		update_hp_bar()
+
+func ability():
+	if $camera/pause.visible == false and $camera/ability.visible == false:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	if Input.is_action_pressed('action_pick'):
+		$camera/ability.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+	else:
+		$camera/ability.visible = false
+	
+	current = $camera/ability.current
+	

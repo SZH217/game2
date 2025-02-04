@@ -1,101 +1,88 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj5f1v3bfobkb"]
+[gd_scene load_steps=6 format=3 uid="uid://dj5f1v3bfobkb"]
 
 [ext_resource type="Texture2D" uid="uid://mx36wmqat110" path="res://icon.svg" id="1_120xd"]
-[ext_resource type="Script" path="res://assets/scripts/ability_picker.gd" id="1_elavw"]
-[ext_resource type="Shader" path="res://assets/shaders/ability.gdshader" id="1_x1kpr"]
+[ext_resource type="Script" path="res://assets/scenes/ability.gd" id="1_q4mdt"]
+[ext_resource type="Texture2D" uid="uid://bvtv2mlsrl7f0" path="res://assets/textures/head.png" id="3_q1r7a"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvi0t"]
-render_priority = 0
-shader = ExtResource("1_x1kpr")
+[sub_resource type="Gradient" id="Gradient_6hrh3"]
+colors = PackedColorArray(0, 0, 0, 0.235294, 0, 0, 0, 0.235294)
 
-[sub_resource type="Gradient" id="Gradient_njwit"]
-colors = PackedColorArray(0, 0, 0, 0.2, 0, 0, 0, 0.2)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8k014"]
+gradient = SubResource("Gradient_6hrh3")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5xbp"]
-gradient = SubResource("Gradient_njwit")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onoqc"]
-size = Vector2(128, 122.88)
-
-[node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_wvi0t")
+[node name="ability" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_m5xbp")
+script = ExtResource("1_q4mdt")
 
-[node name="AbilityPicker" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(20, 20)
-script = ExtResource("1_elavw")
+texture = SubResource("GradientTexture1D_8k014")
 
-[node name="AbilityLeftHand" type="Area2D" parent="AbilityPicker"]
-position = Vector2(13, -21)
-scale = Vector2(0.390625, 0.390625)
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 20
 
-[node name="Sprite2D" type="Sprite2D" parent="AbilityPicker/AbilityLeftHand"]
-texture = ExtResource("1_120xd")
+[node name="up" type="Button" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+icon = ExtResource("1_120xd")
+flat = true
+expand_icon = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AbilityPicker/AbilityLeftHand"]
-shape = SubResource("RectangleShape2D_onoqc")
+[node name="down" type="Button" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+icon = ExtResource("3_q1r7a")
+flat = true
+expand_icon = true
 
-[node name="AbilityRightHand" type="Area2D" parent="AbilityPicker"]
-position = Vector2(95, 33)
-scale = Vector2(0.390625, 0.390625)
+[node name="left" type="Button" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("1_120xd")
+flat = true
+expand_icon = true
 
-[node name="Sprite2D" type="Sprite2D" parent="AbilityPicker/AbilityRightHand"]
-texture = ExtResource("1_120xd")
+[node name="right" type="Button" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_120xd")
+flat = true
+expand_icon = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AbilityPicker/AbilityRightHand"]
-shape = SubResource("RectangleShape2D_onoqc")
-
-[node name="AbilityLeftLeg" type="Area2D" parent="AbilityPicker"]
-position = Vector2(14, 92)
-scale = Vector2(0.390625, 0.390625)
-
-[node name="Sprite2D" type="Sprite2D" parent="AbilityPicker/AbilityLeftLeg"]
-texture = ExtResource("1_120xd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AbilityPicker/AbilityLeftLeg"]
-shape = SubResource("RectangleShape2D_onoqc")
-
-[node name="AbilityRightLeg" type="Area2D" parent="AbilityPicker"]
-position = Vector2(-67, 32)
-scale = Vector2(0.390625, 0.390625)
-
-[node name="Sprite2D" type="Sprite2D" parent="AbilityPicker/AbilityRightLeg"]
-texture = ExtResource("1_120xd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AbilityPicker/AbilityRightLeg"]
-shape = SubResource("RectangleShape2D_onoqc")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 296.0
-offset_top = 276.0
-offset_right = 336.0
-offset_bottom = 299.0
-text = "aaaa"
-
-[connection signal="mouse_entered" from="AbilityPicker/AbilityLeftHand" to="AbilityPicker" method="_on_ability_left_hand_mouse_entered"]
-[connection signal="mouse_exited" from="AbilityPicker/AbilityLeftHand" to="AbilityPicker" method="_on_ability_left_hand_mouse_exited"]
-[connection signal="mouse_entered" from="AbilityPicker/AbilityRightHand" to="AbilityPicker" method="_on_ability_right_hand_mouse_entered"]
-[connection signal="mouse_exited" from="AbilityPicker/AbilityRightHand" to="AbilityPicker" method="_on_ability_right_hand_mouse_exited"]
-[connection signal="mouse_entered" from="AbilityPicker/AbilityLeftLeg" to="AbilityPicker" method="_on_ability_left_leg_mouse_entered"]
-[connection signal="mouse_exited" from="AbilityPicker/AbilityLeftLeg" to="AbilityPicker" method="_on_ability_left_leg_mouse_exited"]
-[connection signal="mouse_entered" from="AbilityPicker/AbilityRightLeg" to="AbilityPicker" method="_on_ability_right_leg_mouse_entered"]
-[connection signal="mouse_exited" from="AbilityPicker/AbilityRightLeg" to="AbilityPicker" method="_on_ability_right_leg_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/MarginContainer/up" to="." method="_on_up_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/MarginContainer/up" to="." method="_on_up_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/MarginContainer/down" to="." method="_on_down_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/MarginContainer/down" to="." method="_on_down_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/MarginContainer/left" to="." method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/MarginContainer/left" to="." method="_on_left_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/MarginContainer/right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/MarginContainer/right" to="." method="_on_right_mouse_exited"]

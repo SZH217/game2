@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://doqhvxsh8l7ei"]
+[gd_scene load_steps=10 format=3 uid="uid://doqhvxsh8l7ei"]
 
 [ext_resource type="Texture2D" uid="uid://c5pgn75rbs2nt" path="res://assets/textures/healthbar.png" id="1_d0qgj"]
+[ext_resource type="Script" path="res://assets/scenes/hud.gd" id="1_dftir"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_503e0"]
 
@@ -149,6 +150,8 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_dftir")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)

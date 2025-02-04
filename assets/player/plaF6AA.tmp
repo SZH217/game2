@@ -408,11 +408,6 @@ offset_bottom = -20.0
 
 [node name="ability" parent="camera" instance=ExtResource("2_o5cc4")]
 visible = false
-custom_minimum_size = Vector2(640, 360)
-offset_left = -321.0
-offset_top = -199.075
-offset_right = 319.0
-offset_bottom = 160.925
 
 [node name="HealingTimer" type="Timer" parent="."]
 wait_time = 0.5
