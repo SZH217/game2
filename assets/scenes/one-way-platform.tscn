@@ -15,3 +15,4 @@ mesh = SubResource("QuadMesh_rtg0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tkjng")
 one_way_collision = true
+one_way_collision_margin = 10.0

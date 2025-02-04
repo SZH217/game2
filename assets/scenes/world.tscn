@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1l10tq5xrgbo"]
+[gd_scene load_steps=15 format=3 uid="uid://c1l10tq5xrgbo"]
 
 [ext_resource type="Script" path="res://assets/scripts/world.gd" id="1_qq2vp"]
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ggjdnrr5bhmc" path="res://assets/scenes/platform2.tscn" id="5_hyhwo"]
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
 [ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
-[ext_resource type="PackedScene" uid="uid://bklmchjfultcj" path="res://assets/scenes/bullet.tscn" id="9_p6kdw"]
 [ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="9_rl4nj"]
-[ext_resource type="PackedScene" uid="uid://d1vnrf2mfsjfu" path="res://assets/scenes/enemy.tscn" id="10_64lvh"]
 [ext_resource type="PackedScene" uid="uid://doqhvxsh8l7ei" path="res://assets/scenes/hud.tscn" id="10_omi2j"]
 [ext_resource type="Texture2D" uid="uid://csi5rot7s1ubg" path="res://assets/tilesets/tiles.png" id="12_y14wj"]
 [ext_resource type="PackedScene" uid="uid://bkh3220lwijbs" path="res://assets/scenes/jukebox.tscn" id="13_r6qb0"]
@@ -614,8 +612,14 @@ scale = Vector2(1.48, 0.36)
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("8_jyp76")]
 visible = false
-position = Vector2(614, -74)
+position = Vector2(614, -63)
 scale = Vector2(19.1995, 0.159211)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/StaticBody2D"]
+polygon = PackedVector2Array(196, 246, 259, 172, 274, 168, 330, 170, 374, 179, 395, 182, 450, 248, 450, 265, 379, 265, 333, 270, 316, 257, 268, 189, 208, 262)
 
 [node name="bgm1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -624,9 +628,6 @@ volume_db = -13.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_omi2j")]
 
-[node name="enemy" parent="." instance=ExtResource("10_64lvh")]
-position = Vector2(548, 313)
-bullet = ExtResource("9_p6kdw")
-
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
-position = Vector2(-50, 313)
+position = Vector2(-25, 327)
+hp = 100

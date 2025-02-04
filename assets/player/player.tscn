@@ -361,6 +361,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D" groups=["hand_return"]]
 script = ExtResource("1_8k20g")
+hp = 20
 ability_picker_scene = ExtResource("2_o5cc4")
 hand_scene = ExtResource("3_3lrhk")
 crosshair_scene = ExtResource("4_0oxcm")

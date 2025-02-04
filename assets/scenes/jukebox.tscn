@@ -1,7 +1,34 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkh3220lwijbs"]
 
 [ext_resource type="Texture2D" uid="uid://rtxww4btl7o2" path="res://assets/textures/jukebox.png" id="1_fqd0q"]
-[ext_resource type="Script" path="res://assets/scenes/jukebox.gd" id="1_q37am"]
+[ext_resource type="Script" path="res://assets/scripts/jukebox.gd" id="1_q37am"]
+
+[sub_resource type="Animation" id="Animation_ge85g"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 221, 281), Rect2(221, 0, 221, 281), Rect2(442, 0, 221, 281), Rect2(663, 0, 221, 281)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_exn8a"]
 length = 0.1
@@ -44,33 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Rect2(221, 0, 221, 281), Rect2(442, 0, 221, 281), Rect2(663, 0, 221, 281), Rect2(884, 0, 221, 281)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ge85g"]
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 221, 281), Rect2(221, 0, 221, 281), Rect2(442, 0, 221, 281), Rect2(663, 0, 221, 281)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

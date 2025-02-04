@@ -142,6 +142,12 @@ func _physics_process(_delta: float) -> void:
 	handle_jump_and_walljump()
 	handle_wallslide_and_shooting()
 
+	if Input.is_action_just_pressed("down") and Input.is_action_pressed("action_c") and is_on_floor():
+		position.y += 5  # Move the player slightly downward
+		set_collision_mask_value(1, false)  # Disable collision with one-way platforms
+		await get_tree().create_timer(0.2).timeout  # Wait a moment to fall through
+		set_collision_mask_value(1, true)  # Re-enable collision
+
 	move_and_slide()
 
 # Handle ability picker activation and deactivation
