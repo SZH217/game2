@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gjbxfvuul4bk"
-path="res://.godot/imported/Baby Boxer.png-9091cf8b444146f2fbc6e6f986084ff4.ctex"
+uid="uid://dxh25hpqnn2fd"
+path="res://.godot/imported/arm2.png-b9212896cc1fdf4b3f90bd0ddaccecc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/baby boxer/Baby Boxer.png"
-dest_files=["res://.godot/imported/Baby Boxer.png-9091cf8b444146f2fbc6e6f986084ff4.ctex"]
+source_file="res://assets/textures/boss/arm2.png"
+dest_files=["res://.godot/imported/arm2.png-b9212896cc1fdf4b3f90bd0ddaccecc4.ctex"]
 
 [params]
 
