@@ -645,18 +645,22 @@ position = Vector2(0, -1)
 polygon = PackedVector2Array(1300, 80, 1344, 99, 1395, 108, 1448, 114, 1471, 124, 1483, 136, 1494, 145, 1494, 481, 1405, 568, 1574, 568, 1574, 76)
 
 [node name="Platform7" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
 position = Vector2(772, 664)
 scale = Vector2(1.04, 0.36)
 
 [node name="Platform8" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
 position = Vector2(249, 696)
 scale = Vector2(-0.154053, -0.295804)
 
 [node name="Platform9" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
 position = Vector2(387, 781)
 scale = Vector2(-0.154053, -0.295804)
 
 [node name="Platform10" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
 position = Vector2(1038, 870)
 scale = Vector2(1.64, 0.36)
 

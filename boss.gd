@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 5
 @onready var player = $"../player"
 var t = 0.04
+const WORLD = preload("res://assets/scenes/world.tscn")
 
 var attack = false
 
@@ -50,7 +51,7 @@ func getHit(damage):
 	$Sprite2D.modulate = Color(1, 0, 0, 1) # Красный с прозрачностью 0.7
 	$Timer2.start(0.5)
 	if hp <= 0:
-		queue_free()
+		get_tree().change_scene_to_file("res://assets/scenes/main.tscn")
 
 
 
