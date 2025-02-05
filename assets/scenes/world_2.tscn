@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2nu1q5d0w0u7"]
+[gd_scene load_steps=6 format=3 uid="uid://d2nu1q5d0w0u7"]
 
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="1_1jvhw"]
 [ext_resource type="PackedScene" uid="uid://doqhvxsh8l7ei" path="res://assets/scenes/hud.tscn" id="2_h3hg0"]
 [ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="3_wott6"]
+[ext_resource type="PackedScene" uid="uid://ggjdnrr5bhmc" path="res://assets/scenes/platform2.tscn" id="4_67irf"]
+[ext_resource type="PackedScene" uid="uid://bm1oi7hlv124r" path="res://boss.tscn" id="5_1vor2"]
 
 [node name="world2" type="Node2D"]
 
@@ -17,3 +19,24 @@ layer = 0
 [node name="player" parent="." instance=ExtResource("3_wott6")]
 position = Vector2(321, 211)
 hp = 100
+
+[node name="Platform" parent="." instance=ExtResource("4_67irf")]
+position = Vector2(803, 531)
+scale = Vector2(23.04, 1)
+
+[node name="Platform2" parent="." instance=ExtResource("4_67irf")]
+position = Vector2(-401, -197)
+rotation = 1.5708
+scale = Vector2(15.6, 1)
+
+[node name="Platform3" parent="." instance=ExtResource("4_67irf")]
+position = Vector2(2004, -189)
+rotation = 1.5708
+scale = Vector2(15.6, 1)
+
+[node name="Platform4" parent="." instance=ExtResource("4_67irf")]
+position = Vector2(800, -924)
+scale = Vector2(23.04, 1)
+
+[node name="boss" parent="." instance=ExtResource("5_1vor2")]
+position = Vector2(768, -157)
