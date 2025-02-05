@@ -125,10 +125,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48ctb"]
-radius = 397.011
+radius = 234.019
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eftef"]
-radius = 249.018
+radius = 170.003
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8bdh"]
 shader = ExtResource("2_18kv4")

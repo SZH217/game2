@@ -54,7 +54,7 @@ func _on_body_entered(body):
 		queue_free()
 	
 	if body.name.begins_with('enemy'):
-		body.getHit(20)
+		body.getHit(20, global_position)
 	elif body.name.begins_with('boss'):
 		body.getHit(20)
 

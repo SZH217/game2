@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c1l10tq5xrgbo"]
 
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
-[ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
+[ext_resource type="Texture2D" uid="uid://ie65d2n1xekn" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
 [ext_resource type="PackedScene" uid="uid://rkbynkrumvhj" path="res://assets/scenes/killzone.tscn" id="4_wmchl"]
 [ext_resource type="PackedScene" uid="uid://ggjdnrr5bhmc" path="res://assets/scenes/platform2.tscn" id="5_hyhwo"]
 [ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="5_loc5j"]
@@ -597,6 +597,11 @@ shape = SubResource("WorldBoundaryShape2D_pdrhv")
 
 [node name="Platforms" type="Node" parent="."]
 
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_hyhwo")]
+visible = false
+position = Vector2(839, 290)
+scale = Vector2(2.6862, 0.0647999)
+
 [node name="Platform2" parent="Platforms" instance=ExtResource("5_hyhwo")]
 visible = false
 position = Vector2(-353, 479)
@@ -621,6 +626,28 @@ visible = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/StaticBody2D"]
 polygon = PackedVector2Array(196, 246, 259, 172, 274, 168, 330, 170, 374, 179, 395, 182, 450, 248, 450, 265, 379, 265, 333, 270, 316, 257, 268, 189, 208, 262)
 
+[node name="Platform4" parent="Platforms" instance=ExtResource("5_hyhwo")]
+visible = false
+position = Vector2(1185, 263)
+scale = Vector2(2.39145, 0.0647999)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("5_hyhwo")]
+visible = false
+position = Vector2(1279, 570)
+scale = Vector2(2.6862, 0.0647999)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Platforms"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/StaticBody2D2"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(1300, 80, 1344, 99, 1395, 108, 1448, 114, 1471, 124, 1483, 136, 1494, 145, 1494, 481, 1405, 568, 1574, 568, 1574, 76)
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("2_gerlx")]
+visible = false
+position = Vector2(772, 664)
+scale = Vector2(1.04, 0.36)
+
 [node name="bgm1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_loc5j")
@@ -629,10 +656,14 @@ volume_db = -13.0
 [node name="CanvasLayer" parent="." instance=ExtResource("10_omi2j")]
 layer = 0
 
+[node name="enemy2" parent="." instance=ExtResource("11_iv6cw")]
+position = Vector2(721, 611)
+bullet = ExtResource("12_cs6em")
+
+[node name="enemy" parent="." instance=ExtResource("11_iv6cw")]
+position = Vector2(566, 611)
+bullet = ExtResource("12_cs6em")
+
 [node name="player" parent="." instance=ExtResource("9_rl4nj")]
 position = Vector2(-25, 327)
 hp = 100
-
-[node name="enemy" parent="." instance=ExtResource("11_iv6cw")]
-position = Vector2(432, 291)
-bullet = ExtResource("12_cs6em")

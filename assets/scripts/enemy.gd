@@ -105,7 +105,17 @@ func shoot():
 	can_shoot = true
 	shooting = false  
 
-func getHit(damage):
+func getHit(damage, player_position: Vector2):
 	hp -= damage
+
+	# Calculate knockback direction (enemy moves away from player)
+	var knockback_direction = (global_position - player_position).normalized()
+	var knockback_force_x = 250  # Adjust horizontal knockback strength
+	var knockback_force_y = -150  # Negative value to push upwards
+
+	# Apply knockback impulse
+	linear_velocity += Vector2(knockback_direction.x * knockback_force_x, knockback_force_y)
+
+	# If HP reaches 0, remove enemy
 	if hp <= 0:
 		queue_free()

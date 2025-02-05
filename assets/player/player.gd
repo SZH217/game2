@@ -150,17 +150,27 @@ func play_animation(base_anim: String) -> void:
 	var anim_suffix = "_nr" if !haveHand else ""
 	var full_anim_name = base_anim + anim_suffix
 	animation_player.play(full_anim_name)
+	
+var idle_time: float = 0.0
 
 # Physics Update (Player Movement)
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	handle_gravity_and_movement()
 	handle_jump_and_walljump()
 	handle_wallslide_and_shooting()
 
+	# Check if player is idle (on floor, not moving, not jumping, not on wall)
+	if is_on_floor() and not isJumping and not wall and not is_moving():
+		idle_time += delta  # Increase timer
+		if idle_time >= 1.0:  # If idle for 1 second, stop movement
+			velocity.x = 0
+	else:
+		idle_time = 0.0  # Reset timer if player moves
+
 	move_and_slide()
 
-# Handle ability picker activation and deactivation
-
+func is_moving() -> bool:
+	return Input.is_action_pressed("right") or Input.is_action_pressed("left")
 
 # Handle gravity, movement and wall sliding
 func handle_gravity_and_movement() -> void:
@@ -331,7 +341,7 @@ func melee_attack():
 	var overlapping_bodies = $attack.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.name.begins_with('enemy'):
-			body.getHit(10)
+			body.getHit(20, global_position)
 		elif body.name.begins_with('boss'):
 			body.getHit(10)
 			# Наносим урон здесь
@@ -355,7 +365,7 @@ func _on_timer_timeout() -> void:
 
 func _on_attack_body_entered(body: Node2D) -> void:
 	if body.name.begins_with('enemy'):
-		body.getHit(10)
+		body.getHit(10, global_position)
 	elif body.name.begins_with('boss'):
 		body.getHit(10)
 
