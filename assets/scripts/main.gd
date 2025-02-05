@@ -1,6 +1,8 @@
 extends Control
 const WORLD = preload("res://assets/scenes/world.tscn")
 
+func _ready() -> void:
+	$settings.visible = false
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file(WORLD.resource_path)

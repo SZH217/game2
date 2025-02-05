@@ -157,12 +157,6 @@ func _physics_process(_delta: float) -> void:
 	handle_jump_and_walljump()
 	handle_wallslide_and_shooting()
 
-	if Input.is_action_just_pressed("down") and Input.is_action_pressed("action_c") and is_on_floor():
-		position.y += 5  # Move the player slightly downward
-		set_collision_mask_value(1, false)  # Disable collision with one-way platforms
-		await get_tree().create_timer(0.2).timeout  # Wait a moment to fall through
-		set_collision_mask_value(1, true)  # Re-enable collision
-
 	move_and_slide()
 
 # Handle ability picker activation and deactivation
@@ -368,4 +362,32 @@ func _on_attack_timer_timeout() -> void:
 
 
 func dash():
-	velocity += (get_global_mouse_position() - global_position) * dashScale
+	var dash_strength = 800  # Fixed dash speed
+	var dash_direction = (get_global_mouse_position() - global_position).normalized()
+	velocity = dash_direction * dash_strength  # Apply fixed speed
+	
+	create_dash_afterimage()  # Spawn afterimage during dash
+
+	
+func create_dash_afterimage():
+	pass
+	#for i in range(5):  # Create 5 afterimages
+		#var afterimage = Sprite2D.new()
+		#afterimage.texture = $sprite.texture  # Copy player sprite texture
+		#afterimage.global_position = global_position
+		#afterimage.scale = $sprite.scale
+		#afterimage.rotation = $sprite.rotation
+		#afterimage.flip_h = $sprite.flip_h
+		#afterimage.flip_v = $sprite.flip_v
+		#afterimage.modulate = Color(0, 0.5, 1, 0.7 - (i * 0.1))  # Blue tint with fading
+		#afterimage.z_index = 10  # Ensure it's above most objects
+		#get_parent().add_child(afterimage)  # Add to the same parent as the player
+#
+		## Tween to fade out and move slightly backward
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(afterimage, "modulate:a", 0, 0.3 + (i * 0.05))  # Fade out
+		#tween.tween_property(afterimage, "position", afterimage.position - velocity.normalized() * 10, 0.3)
+#
+		## Queue free after a short delay
+		#await get_tree().create_timer(0.05).timeout
+		#afterimage.queue_free()  # Remove after fadingvz

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://doqhvxsh8l7ei"]
 
 [ext_resource type="Texture2D" uid="uid://c5pgn75rbs2nt" path="res://assets/textures/healthbar.png" id="1_d0qgj"]
-[ext_resource type="Script" path="res://assets/scenes/hud.gd" id="1_dftir"]
+[ext_resource type="Script" path="res://assets/scripts/hud.gd" id="1_dftir"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_503e0"]
 
