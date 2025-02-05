@@ -332,6 +332,8 @@ func melee_attack():
 	for body in overlapping_bodies:
 		if body.name.begins_with('enemy'):
 			body.getHit(10)
+		elif body.name.begins_with('boss'):
+			body.getHit(10)
 			# Наносим урон здесь
 
 	# Переключение анимаций
@@ -353,6 +355,8 @@ func _on_timer_timeout() -> void:
 
 func _on_attack_body_entered(body: Node2D) -> void:
 	if body.name.begins_with('enemy'):
+		body.getHit(10)
+	elif body.name.begins_with('boss'):
 		body.getHit(10)
 
 

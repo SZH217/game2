@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1l10tq5xrgbo"]
+[gd_scene load_steps=16 format=3 uid="uid://c1l10tq5xrgbo"]
 
 [ext_resource type="PackedScene" uid="uid://cpx0h6kiqq3fg" path="res://assets/scenes/platform.tscn" id="2_gerlx"]
 [ext_resource type="Texture2D" uid="uid://dm4ew31w736dy" path="res://assets/textures/bg/paint_fullscreen.png" id="2_o3xwq"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://miawiqdj2ubp" path="res://assets/scenes/one-way-platform.tscn" id="8_jyp76"]
 [ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="9_rl4nj"]
 [ext_resource type="PackedScene" uid="uid://doqhvxsh8l7ei" path="res://assets/scenes/hud.tscn" id="10_omi2j"]
-[ext_resource type="PackedScene" path="res://boss.tscn" id="11_kn6hl"]
+[ext_resource type="PackedScene" uid="uid://d1vnrf2mfsjfu" path="res://assets/scenes/enemy.tscn" id="11_iv6cw"]
+[ext_resource type="PackedScene" uid="uid://bklmchjfultcj" path="res://assets/scenes/bullet.tscn" id="12_cs6em"]
 [ext_resource type="Texture2D" uid="uid://csi5rot7s1ubg" path="res://assets/tilesets/tiles.png" id="12_y14wj"]
 [ext_resource type="PackedScene" uid="uid://bkh3220lwijbs" path="res://assets/scenes/jukebox.tscn" id="13_r6qb0"]
 
@@ -632,5 +633,6 @@ layer = 0
 position = Vector2(-25, 327)
 hp = 100
 
-[node name="boss" parent="." instance=ExtResource("11_kn6hl")]
-position = Vector2(641, 102)
+[node name="enemy" parent="." instance=ExtResource("11_iv6cw")]
+position = Vector2(432, 291)
+bullet = ExtResource("12_cs6em")

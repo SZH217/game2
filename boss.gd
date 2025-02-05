@@ -6,6 +6,8 @@ var t = 0.04
 
 var attack = false
 
+@export var hp = 500
+
 @onready var pos = player.global_position
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 		$Timer.start(2)
 
 func _physics_process(delta: float) -> void:
-	position = position.lerp(player.position - Vector2(0, 140), t)
+	position = position.lerp(player.position - Vector2(0, 130), t)
 	
 	if attack:
 		var id = int(randf_range(1,4))
@@ -39,10 +41,16 @@ func _physics_process(delta: float) -> void:
 				$hands.play("saw")
 				$tv.play("laugh")
 		attack = false
+	
 
 
-
-
+func getHit(damage):
+	print('dwadawawdw')
+	hp -= damage
+	$Sprite2D.modulate = Color(1, 0, 0, 1) # Красный с прозрачностью 0.7
+	$Timer2.start(0.5)
+	if hp <= 0:
+		queue_free()
 
 
 
@@ -53,9 +61,13 @@ func _on_timer_timeout() -> void:
 
 func _on_right_body_entered(body: Node2D) -> void:
 	if body.name == 'player':
-		body.takehit(5)
+		body.takehit(15)
 
 
 func _on_left_body_entered(body: Node2D) -> void:
 	if body.name == 'player':
-		body.takehit(5)
+		body.takehit(10)
+
+
+func _on_timer_2_timeout() -> void:
+	$Sprite2D.modulate = Color(1, 1, 1, 1) # Красный с прозрачностью 0.7

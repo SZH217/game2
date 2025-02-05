@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dxh25hpqnn2fd" path="res://assets/textures/boss/arm2.png" id="3_epk5v"]
 [ext_resource type="Texture2D" uid="uid://bfftg7hep1w5u" path="res://assets/textures/boss/arm1.png" id="4_ji0jc"]
 
-[sub_resource type="Animation" id="Animation_kejh0"]
-length = 4.4
+[sub_resource type="Animation" id="Animation_kj27r"]
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +15,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 0, 262, 163), Rect2(262, 0, 262, 163), Rect2(524, 0, 262, 163), Rect2(786, 0, 262, 163), Rect2(1048, 0, 262, 163), Rect2(1310, 0, 262, 163), Rect2(1572, 0, 262, 163), Rect2(1834, 0, 262, 163), Rect2(0, 163, 262, 163), Rect2(262, 163, 262, 163), Rect2(524, 163, 262, 163), Rect2(786, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1310, 163, 262, 163), Rect2(1572, 163, 262, 163), Rect2(1572, 163, 262, 163), Rect2(1834, 163, 262, 163), Rect2(0, 326, 262, 163), Rect2(262, 326, 262, 163), Rect2(524, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(1048, 326, 262, 163), Rect2(1310, 326, 262, 163), Rect2(1572, 326, 262, 163), Rect2(1834, 326, 262, 163), Rect2(0, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(262, 489, 262, 163), Rect2(262, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(524, 489, 262, 163), Rect2(524, 489, 262, 163), Rect2(786, 489, 262, 163), Rect2(1048, 489, 262, 163), Rect2(1048, 489, 262, 163), Rect2(1310, 489, 262, 163), Rect2(1572, 489, 262, 163)]
+"values": [Rect2(786, 652, 262, 163), Rect2(786, 652, 262, 163), Rect2(1048, 652, 262, 163), Rect2(1310, 652, 262, 163), Rect2(1572, 652, 262, 163), Rect2(1834, 652, 262, 163), Rect2(0, 815, 262, 163), Rect2(0, 815, 262, 163), Rect2(262, 815, 262, 163), Rect2(524, 815, 262, 163), Rect2(524, 815, 262, 163), Rect2(524, 815, 262, 163)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -27,37 +27,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_7k8jl"]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1lfe1"]
@@ -87,8 +60,8 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_kj27r"]
-length = 1.2
+[sub_resource type="Animation" id="Animation_q3617"]
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,10 +69,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(786, 652, 262, 163), Rect2(786, 652, 262, 163), Rect2(1048, 652, 262, 163), Rect2(1310, 652, 262, 163), Rect2(1572, 652, 262, 163), Rect2(1834, 652, 262, 163), Rect2(0, 815, 262, 163), Rect2(0, 815, 262, 163), Rect2(262, 815, 262, 163), Rect2(524, 815, 262, 163), Rect2(524, 815, 262, 163), Rect2(524, 815, 262, 163)]
+"values": [Rect2(1834, 978, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163), Rect2(1834, 978, 262, 163), Rect2(524, 1141, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163), Rect2(1834, 978, 262, 163), Rect2(524, 1141, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -108,10 +81,37 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kejh0"]
+length = 4.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 262, 163), Rect2(262, 0, 262, 163), Rect2(524, 0, 262, 163), Rect2(786, 0, 262, 163), Rect2(1048, 0, 262, 163), Rect2(1310, 0, 262, 163), Rect2(1572, 0, 262, 163), Rect2(1834, 0, 262, 163), Rect2(0, 163, 262, 163), Rect2(262, 163, 262, 163), Rect2(524, 163, 262, 163), Rect2(786, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1048, 163, 262, 163), Rect2(1310, 163, 262, 163), Rect2(1572, 163, 262, 163), Rect2(1572, 163, 262, 163), Rect2(1834, 163, 262, 163), Rect2(0, 326, 262, 163), Rect2(262, 326, 262, 163), Rect2(524, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(786, 326, 262, 163), Rect2(1048, 326, 262, 163), Rect2(1310, 326, 262, 163), Rect2(1572, 326, 262, 163), Rect2(1834, 326, 262, 163), Rect2(0, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(262, 489, 262, 163), Rect2(262, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(0, 489, 262, 163), Rect2(524, 489, 262, 163), Rect2(524, 489, 262, 163), Rect2(786, 489, 262, 163), Rect2(1048, 489, 262, 163), Rect2(1048, 489, 262, 163), Rect2(1310, 489, 262, 163), Rect2(1572, 489, 262, 163)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_nmom2"]
@@ -141,8 +141,8 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_q3617"]
-length = 1.1
+[sub_resource type="Animation" id="Animation_7k8jl"]
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -150,10 +150,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(1834, 978, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163), Rect2(1834, 978, 262, 163), Rect2(524, 1141, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163), Rect2(1834, 978, 262, 163), Rect2(524, 1141, 262, 163), Rect2(0, 1141, 262, 163), Rect2(262, 1141, 262, 163)]
+"values": [Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(1834, 489, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163), Rect2(0, 652, 262, 163)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -162,10 +162,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j0uy"]
@@ -281,22 +281,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rj81m"]
 
-[sub_resource type="Animation" id="Animation_qumcr"]
-resource_name = "left attack"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("left:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-269, -102), Vector2(-219, 151), Vector2(-28, 278), Vector2(-219, 151), Vector2(-269, -102)]
-}
-
 [sub_resource type="Animation" id="Animation_a3o4o"]
 length = 0.001
 tracks/0/type = "value"
@@ -324,19 +308,20 @@ tracks/1/keys = {
 "values": [Vector2(507, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_in836"]
-resource_name = "right attack"
+[sub_resource type="Animation" id="Animation_qumcr"]
+resource_name = "left attack"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("right:position")
+tracks/0/path = NodePath("left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.766667, 0.9),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(507, 3), Vector2(25, 401), Vector2(-309, 2), Vector2(-171, -345), Vector2(617, 8)]
+"values": [Vector2(-269, -102), Vector2(-219, 151), Vector2(-28, 278), Vector2(-219, 151), Vector2(-269, -102)]
 }
 
 [sub_resource type="Animation" id="Animation_6i11g"]
@@ -364,6 +349,21 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-494, 13), Vector2(-22, 276), Vector2(-164, -64), Vector2(58, -335), Vector2(2, 490)]
+}
+
+[sub_resource type="Animation" id="Animation_in836"]
+resource_name = "right attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.766667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(507, 3), Vector2(25, 401), Vector2(-309, 2), Vector2(-171, -345), Vector2(617, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_we53c"]
@@ -410,7 +410,7 @@ script = ExtResource("1_kgiha")
 z_index = 1
 texture = ExtResource("1_pstal")
 region_enabled = true
-region_rect = Rect2(524, 815, 262, 163)
+region_rect = Rect2(1834, 978, 262, 163)
 
 [node name="tv" type="AnimationPlayer" parent="."]
 libraries = {
@@ -545,6 +545,9 @@ position = Vector2(-269, -102)
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Timer2" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Skeleton2D/right/Bone2D/Bone2D/Bone2D/Bone2D/right" to="." method="_on_right_body_entered"]
 [connection signal="body_entered" from="Skeleton2D/left/Bone2D/Bone2D/Bone2D/Bone2D/left" to="." method="_on_left_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

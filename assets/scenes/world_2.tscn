@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2nu1q5d0w0u7"]
+
+[ext_resource type="AudioStream" uid="uid://chabw0vue3dhw" path="res://assets/music/music.ogg" id="1_1jvhw"]
+[ext_resource type="PackedScene" uid="uid://doqhvxsh8l7ei" path="res://assets/scenes/hud.tscn" id="2_h3hg0"]
+[ext_resource type="PackedScene" uid="uid://bk54mwgc83x41" path="res://assets/player/player.tscn" id="3_wott6"]
+
+[node name="world2" type="Node2D"]
+
+[node name="bgm1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("1_1jvhw")
+volume_db = -13.0
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_h3hg0")]
+layer = 0
+
+[node name="player" parent="." instance=ExtResource("3_wott6")]
+position = Vector2(321, 211)
+hp = 100

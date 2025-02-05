@@ -55,6 +55,8 @@ func _on_body_entered(body):
 	
 	if body.name.begins_with('enemy'):
 		body.getHit(20)
+	elif body.name.begins_with('boss'):
+		body.getHit(20)
 
 func _on_timer_timeout() -> void:
 	canGet = true
